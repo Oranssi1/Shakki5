@@ -6,9 +6,16 @@
 //  Copyright © 2019 B & J Corp. All rights reserved.
 //
 
-#ifndef kayttoliittyma_h
-#define kayttoliittyma_h
 #include "asema.h"
+// Heinin koodi------|
+#include <Windows.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <io.h>
+#include <iostream>
+#include <utility>
+#include <string>
+//-------------------|
 
 class Kayttoliittyma {
 
@@ -18,4 +25,3 @@ public:
 	void piirraLauta();
 };
 
-#endif /* kayttoliittyma_h */

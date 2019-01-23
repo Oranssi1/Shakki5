@@ -7,10 +7,18 @@
 //
 
 #include "kayttoliittyma.h"
+// Heinin koodi-------------|
+#include <iostream>
+#include <Windows.h>
+#include "Nappula.h"
+#include "Asema.h"
+// Heinin koodi-------------|
 
 int main() {
-	Asema asema;
-	Kayttoliittyma kayttoliittyma(&asema);
-//	kayttoliittyma.piirraLauta();
+	// Heinin koodi---------------------------------------------|
+	Asema* asema = new Asema();
+	Kayttoliittyma* kayttoliittyma = new Kayttoliittyma(asema);
+	kayttoliittyma->piirraLauta();
+	// Heinin koodi---------------------------------------------|
 	return 0;
 }

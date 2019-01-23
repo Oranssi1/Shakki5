@@ -7,13 +7,7 @@
 //
 
 #include "nappula.h"
-
-
-std::wstring _unicode;
-int _vari; // valkea = 0, musta = 1
-int _koodi; // VT, VR, MT tms.
-
-Nappula::Nappula() {}
+#include <iostream> // Heinin koodi
 
 Nappula::Nappula(std::wstring unicode, int vari, int koodi) {
 	_vari = vari;
@@ -21,24 +15,26 @@ Nappula::Nappula(std::wstring unicode, int vari, int koodi) {
 	_unicode = unicode;
 }
 
-void setKoodi(int koodi) {
+void Nappula::setKoodi(int koodi) {
 	_koodi = koodi;
 }
 
-int getKoodi() {
+int Nappula::getKoodi() {
 	return _koodi;
 }
 
-void setUnicode(std::wstring unicode) {
+void Nappula::setUnicode(std::wstring unicode) {
 	_unicode = unicode;
 }
 
-std::wstring getUnicode();
+std::wstring Nappula::getUnicode() {
+	return _unicode;
+}
 
-void setVari(int vari) {
+void Nappula::setVari(int vari) {
 	_vari = vari;
 }
 
-int getVari() {
+int Nappula::getVari() {
 	return _vari;
 }

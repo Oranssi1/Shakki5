@@ -6,13 +6,11 @@
 //  Copyright © 2019 B & J Corp. All rights reserved.
 //
 
-#ifndef nappula_h
-#define nappula_h
-
+#pragma once
 #include <string>
+#include <iostream> // Heinin koodi
 
-enum
-{
+enum {
 	VT, VR, VL, VD, VK, VS,
 	MT, MR, ML, MD, MK, MS
 };
@@ -20,12 +18,13 @@ enum
 class Nappula {
 
 private:
-	std::wstring unicode;
-	int vari; // valkea = 0, musta = 1
-	int _koodi; // VT, VR, MT tms.
+	std::wstring _unicode;
+	int _vari;
+	int _koodi;
+
 public:
 	Nappula(std::wstring, int, int);
-	Nappula();
+	Nappula() {};
 	void setKoodi(int);
 	int getKoodi();
 	void setUnicode(std::wstring);
@@ -34,5 +33,3 @@ public:
 	int getVari();
 };
 
-
-#endif /* nappula_h */
