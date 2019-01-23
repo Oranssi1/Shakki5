@@ -1,10 +1,18 @@
+//
+//  ruutu.h
+//  Chess
+//
+//  Created by Nico Behnen on 23/01/2019.
+//  Copyright © 2019 B & J Corp. All rights reserved.
+//
+
 class Ruutu {
 public:
-	Ruutu(int rivi, int sarake);
+	Ruutu(int, int);
 	Ruutu() {}
 	int getRivi();
 	int getSarake();
 private:
-	int sarake;
-	int rivi;
+	int _sarake;
+	int _rivi;
 };
