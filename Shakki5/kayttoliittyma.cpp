@@ -3,9 +3,8 @@
 //  Chess
 //
 //  Created by Nico Behnen on 18/01/2019.
-//  Copyright © 2019 B & J Corp. All rights reserved.
-//	You have a right to remain silent'
-//lasdlasd
+//  Copyright Â© 2019 B & J Corp. All rights reserved.
+//	You have a right to remain silent
 
 #include "kayttoliittyma.h"
 #include <iostream>
