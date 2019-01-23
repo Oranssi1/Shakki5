@@ -147,6 +147,7 @@
     <ClCompile Include="kayttoliittyma.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nappula.cpp" />
+    <ClCompile Include="siirto.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asema.h" />

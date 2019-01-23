@@ -27,6 +27,9 @@
     <ClCompile Include="nappula.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="siirto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asema.h">
