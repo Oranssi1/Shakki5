@@ -56,6 +56,19 @@ Asema::Asema() {
 		lauta[i][1] = lauta[0][1];
 		lauta[i][6] = lauta[0][6];
 	}
+}
+
+	void Asema::paivitaAsema(Siirto* siirto) {
+
+	}
+	int getSiirtovuoro();
+	void setSiirtovuoro(int vari);
+	bool getOnkoValkeaKuningasLiikkunut();
+	bool getOnkoMustaKuningasLiikkunut();
+	bool getOnkoValkeaDTliikkunut();
+	bool getOnkoValkeaKTliikkunut();
+	bool getOnkoMustaDTliikkunut();
+	bool getOnkoMustaKTliikkunut();
 
 	// Heinin koodi
 	// lauta[0][0] = vt;

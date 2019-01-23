@@ -7,7 +7,9 @@
 //
 
 #include "kayttoliittyma.h"
+#include "siirto.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 Asema* _asema;
@@ -24,20 +26,20 @@ void Kayttoliittyma::piirraLauta() {
 			for (int x = 0; x < 8; x++) {
 				if (x % 2 == 0) {
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN);
-					wcout << " ";
+					std::wcout << " ";
 				}
 
 				else {
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE);
-					wcout << " ";
+					std::wcout << " ";
 				}
 
 				if (_asema->lauta[x][y-1] == nullptr) {
-					wcout << L"  ";
+					std::wcout << L"  ";
 				}
 				else {
-					wcout << _asema->lauta[x][y-1]->getUnicode();
-					wcout << L" ";
+					std::wcout << _asema->lauta[x][y-1]->getUnicode();
+					std::wcout << L" ";
 				}
 			}
 		}
@@ -55,16 +57,25 @@ void Kayttoliittyma::piirraLauta() {
 				}
 
 				if (_asema->lauta[x][y-1] == nullptr) {
-					wcout << L"  ";
+					std::wcout << L"  ";
 				}
 				else {
-					wcout << _asema->lauta[x][y-1]->getUnicode();
-					wcout << L" ";
+					std::wcout << _asema->lauta[x][y-1]->getUnicode();
+					std::wcout << L" ";
 				}
 			}
 		}
 		std::wcout << std::endl;
 	}
 	// Heinin koodi--------------------------------------------------------------------------------------------------------|
+}
+
+Siirto annaVastustajanSiirto() {
+	std::wstring siirto;
+	std::wcout << "Anna vastustajan siirto: ";
+	std::wcin >> siirto;
+	std::wcout << siirto;
+
+
 }
 
