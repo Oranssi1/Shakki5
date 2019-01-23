@@ -8,7 +8,7 @@ public:
 	Ruutu getAlkuruutu();
 	Ruutu getLoppuruutu();
 	bool onkoLyhytLinna();
-	bool onkoPitkälinna();
+	bool onkoPitkalinna();
 private:
 	Ruutu _alkuRuutu;
 	Ruutu _loppuRuutu;

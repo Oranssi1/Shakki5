@@ -30,6 +30,9 @@
     <ClCompile Include="siirto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ruutu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asema.h">
