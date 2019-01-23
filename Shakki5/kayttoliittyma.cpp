@@ -7,7 +7,6 @@
 //
 
 #include "kayttoliittyma.h"
-#include "siirto.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -75,7 +74,7 @@ Siirto annaVastustajanSiirto() {
 	std::wcout << "Anna vastustajan siirto: ";
 	std::wcin >> siirto;
 	std::wcout << siirto;
-
-
+	Siirto* aapapp = new Siirto();
+	return* aapapp;
 }
 

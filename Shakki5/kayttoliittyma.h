@@ -15,6 +15,7 @@
 #include <iostream>
 #include <utility>
 #include <string>
+#include "siirto.h"
 //-------------------|
 
 class Kayttoliittyma {
