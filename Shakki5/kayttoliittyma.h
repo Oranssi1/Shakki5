@@ -23,5 +23,6 @@ public:
 	Asema* asema;
 	Kayttoliittyma(Asema* asema);
 	void piirraLauta();
+	Siirto annaVastustajanSiirto();
 };
 
