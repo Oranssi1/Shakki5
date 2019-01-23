@@ -61,14 +61,38 @@ Asema::Asema() {
 	void Asema::paivitaAsema(Siirto* siirto) {
 
 	}
-	int getSiirtovuoro();
-	void setSiirtovuoro(int vari);
-	bool getOnkoValkeaKuningasLiikkunut();
-	bool getOnkoMustaKuningasLiikkunut();
-	bool getOnkoValkeaDTliikkunut();
-	bool getOnkoValkeaKTliikkunut();
-	bool getOnkoMustaDTliikkunut();
-	bool getOnkoMustaKTliikkunut();
+
+	int Asema::getSiirtovuoro() {
+		return siirtovuoro;
+	}
+
+	void Asema::setSiirtovuoro(int vari) {
+
+	}
+
+	bool Asema::getOnkoValkeaKuningasLiikkunut() {
+		return onkoValkeaKuningasLiikkunut;
+	}
+
+	bool Asema::getOnkoMustaKuningasLiikkunut() {
+		return onkoMustaKuningasLiikkunut;
+	}
+
+	bool Asema::getOnkoValkeaDTliikkunut() {
+		return onkoValkeaDTliikkunut;
+	}
+
+	bool Asema::getOnkoValkeaKTliikkunut() {
+		return onkoValkeaKTliikkunut;
+	}
+
+	bool Asema::getOnkoMustaDTliikkunut() {
+		return onkoMustaDTliikkunut;
+	}
+
+	bool Asema::getOnkoMustaKTliikkunut() {
+		return onkoMustaKTliikkunut;
+	}
 
 	// Heinin koodi
 	// lauta[0][0] = vt;
@@ -108,4 +132,4 @@ Asema::Asema() {
 	// lauta[5][6] = ms;
 	// lauta[6][6] = ms;
 	// lauta[7][6] = ms;
-}
+
