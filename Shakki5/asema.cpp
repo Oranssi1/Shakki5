@@ -53,7 +53,7 @@ Asema::Asema() {
 	lauta[7][7] = lauta[0][7];
 
 	for (int i = 0; i < 8; i++) {
-		lauta[i][1] = lauta[1][1];
+		lauta[i][1] = lauta[0][1];
 		lauta[i][6] = lauta[0][6];
 	}
 

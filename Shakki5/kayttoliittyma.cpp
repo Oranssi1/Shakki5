@@ -19,24 +19,24 @@ void Kayttoliittyma::piirraLauta() {
 	// Heinin koodi--------------------------------------------------------------------------------------------------------|
 	_setmode(_fileno(stdout), _O_U16TEXT);
 
-	for (int y = 0; y < 8; y++) {
+	for (int y = 8; y > 0; y--) {
 		if (y % 2 == 0) {
 			for (int x = 0; x < 8; x++) {
 				if (x % 2 == 0) {
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE);
-					wcout << " ";
-				}
-
-				else {
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN);
 					wcout << " ";
 				}
 
-				if (_asema->lauta[x][y] == nullptr) {
+				else {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE);
+					wcout << " ";
+				}
+
+				if (_asema->lauta[x][y-1] == nullptr) {
 					wcout << L"  ";
 				}
 				else {
-					wcout << _asema->lauta[x][y]->getUnicode();
+					wcout << _asema->lauta[x][y-1]->getUnicode();
 					wcout << L" ";
 				}
 			}
@@ -45,20 +45,20 @@ void Kayttoliittyma::piirraLauta() {
 		else {
 			for (int x = 0; x < 8; x++) {
 				if (x % 2 == 0) {
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN);
-					std::wcout << " ";
-				}
-
-				else {
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE);
 					std::wcout << " ";
 				}
 
-				if (_asema->lauta[x][y] == nullptr) {
+				else {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN);
+					std::wcout << " ";
+				}
+
+				if (_asema->lauta[x][y-1] == nullptr) {
 					wcout << L"  ";
 				}
 				else {
-					wcout << _asema->lauta[x][y]->getUnicode();
+					wcout << _asema->lauta[x][y-1]->getUnicode();
 					wcout << L" ";
 				}
 			}
