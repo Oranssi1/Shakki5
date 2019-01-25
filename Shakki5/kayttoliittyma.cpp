@@ -94,7 +94,7 @@ Siirto Kayttoliittyma::annaVastustajanSiirto() {
 		pituus++;
 	}
 	if (pituus == 5) {
-		Ruutu alkuruutu = Ruutu((int)syote[0] - 1, 2);
+		Ruutu alkuruutu = Ruutu((int)syote[1] - 1, 2);
 	}
 }
 
