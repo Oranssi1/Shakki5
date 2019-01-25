@@ -9,11 +9,17 @@
 #include "kayttoliittyma.h"
 #include <iostream>
 #include <string>
+#include <map>
+
 using namespace std;
+
+map <const char*, int> siirtyy;
+siirtyy.insert(pair<char, int>)('a', 0);
 
 Asema* _asema;
 Kayttoliittyma::Kayttoliittyma(Asema* asema) {
 	_asema = asema;
+
 }
 
 void Kayttoliittyma::piirraLauta() {
@@ -70,19 +76,25 @@ void Kayttoliittyma::piirraLauta() {
 }
 
 //vaihda siirroksi
-void annaVastustajanSiirto() {
+Siirto Kayttoliittyma::annaVastustajanSiirto() {
 	std::wstring syote;
 	std::wcout << "Anna vastustajan siirto: ";
 
 	std::wcin >> syote;
 
-	switch (syote[0]) {
-		case 'T':
-			std::wcout << "Torni";
-			break;
+	if (syote == L"O-O") {
+		return Siirto(1, 0);
+	}
+	else if (syote == L"O-O-O") {
+		return Siirto(0, 1);
+	} 
 
-		case 'R':
-			break;
+	int pituus = 0;
+	while (syote[pituus] != '\0') {
+		pituus++;
+	}
+	if (pituus == 5) {
+		Ruutu alkuruutu = Ruutu((int)syote[0] - 1, 2);
 	}
 }
 
