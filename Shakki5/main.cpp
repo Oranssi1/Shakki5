@@ -18,6 +18,7 @@ int main() {
 	// Heinin koodi---------------------------------------------|
 	Asema* asema = new Asema();
 	Kayttoliittyma* kayttoliittyma = new Kayttoliittyma(asema);
+//	kayttoliittyma->annaVastustajanSiirto();
 	kayttoliittyma->piirraLauta();
 	// Heinin koodi---------------------------------------------|
 	return 0;

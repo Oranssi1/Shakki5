@@ -7,7 +7,6 @@
 //
 
 #include "kayttoliittyma.h"
-#include "siirto.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -73,6 +72,7 @@ void Kayttoliittyma::piirraLauta() {
 Siirto annaVastustajanSiirto() {
 	std::wstring syote;
 	std::wcout << "Anna vastustajan siirto: ";
+<<<<<<< HEAD
 	std::wcin >> syote;
 
 	switch (syote[0]) {
@@ -83,6 +83,12 @@ Siirto annaVastustajanSiirto() {
 		case "R":
 		break;
 	}
+=======
+	std::wcin >> siirto;
+	std::wcout << siirto;
+	Siirto* aapapp = new Siirto();
+	return* aapapp;
+>>>>>>> e70d0a58e09ea01d15e86ffcdcb10430a799f224
 }
 
 
