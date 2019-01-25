@@ -94,6 +94,13 @@ Asema::Asema() {
 		}
 		lauta[loppuX][loppuY] = lauta[alkuX][alkuY];
 		lauta[alkuX][alkuY] = NULL;
+
+		if (siirtovuoro == 1) {
+			siirtovuoro = 0;
+		}
+		else {
+			siirtovuoro = 1;
+		}
 	}
 
 	int Asema::getSiirtovuoro() {
@@ -101,7 +108,7 @@ Asema::Asema() {
 	}
 
 	void Asema::setSiirtovuoro(int vari) {
-
+		siirtovuoro = vari;
 	}
 
 	bool Asema::getOnkoValkeaKuningasLiikkunut() {

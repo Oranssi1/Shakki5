@@ -17,6 +17,7 @@
 int main() {
 	// Heinin koodi---------------------------------------------|
 	Asema* asema = new Asema();
+	asema->setSiirtovuoro(0);
 	Kayttoliittyma* kayttoliittyma = new Kayttoliittyma(asema);
 //	kayttoliittyma->annaVastustajanSiirto();
 	kayttoliittyma->piirraLauta();
