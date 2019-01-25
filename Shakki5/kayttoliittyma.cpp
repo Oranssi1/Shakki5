@@ -71,11 +71,20 @@ void Kayttoliittyma::piirraLauta() {
 }
 
 Siirto annaVastustajanSiirto() {
-	std::wstring siirto;
+	std::wstring syote;
 	std::wcout << "Anna vastustajan siirto: ";
-	std::wcin >> siirto;
-	std::wcout << siirto;
+	std::wcin >> syote;
 
+	switch (syote[0]) {
+		case "T":
+		std::wcout << "Torni"
+		break;
 
+		case "R":
+		break;
+	}
 }
+
+
+
 
