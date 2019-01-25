@@ -71,16 +71,15 @@ void Kayttoliittyma::piirraLauta() {
 	// Heinin koodi--------------------------------------------------------------------------------------------------------|
 }
 
-//vaihda siirroksi
 Siirto Kayttoliittyma::annaVastustajanSiirto() {
 	std::wstring syote;
 	std::wcout << "Anna vastustajan siirto: ";
-
 	std::wcin >> syote;
 
 	if (syote == L"O-O") {
 		return Siirto(1, 0);
 	}
+
 	else if (syote == L"O-O-O") {
 		return Siirto(0, 1);
 	} 
@@ -91,11 +90,9 @@ Siirto Kayttoliittyma::annaVastustajanSiirto() {
 	}
 
 	if (pituus == 6) {
-		std::wcout << "syote alkaa " << syote << std::endl;
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 			syote[i] = syote[i + 1];
 		}
-		std::wcout << "syote paattyy " << syote << std::endl;
 	}
 
 	syote[0] = syote[0] - 'a';
