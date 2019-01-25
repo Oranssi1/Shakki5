@@ -59,7 +59,41 @@ Asema::Asema() {
 }
 
 	void Asema::paivitaAsema(Siirto* siirto) {
+		Ruutu alkuruutu = siirto->getAlkuruutu();
+		int alkuX = alkuruutu.getSarake();
+		int alkuY = alkuruutu.getRivi();
+		Nappula* sijainti = lauta[alkuX][alkuY];
+		int nappula = sijainti->getKoodi();
+		Ruutu loppuruutu = siirto->getLoppuruutu();
+		int loppuX = loppuruutu.getSarake();
+		int loppuY = loppuruutu.getRivi();
 
+		switch (nappula) {
+		case VK:
+			onkoValkeaKuningasLiikkunut = true;
+			break;
+		case MK:
+			onkoMustaKuningasLiikkunut = true;
+			break;
+		case VT:
+			if (alkuX != 0 & alkuY != 0)
+			{
+				onkoValkeaDTliikkunut = true;
+				break;
+			}
+			onkoValkeaKTliikkunut = true;
+			break;
+		case MT:
+			if (alkuX != 0 & alkuY != 7)
+			{
+				onkoMustaDTliikkunut = true;
+				break;
+			}
+			onkoMustaKTliikkunut = true;
+			break;
+		}
+		lauta[loppuX][loppuY] = lauta[alkuX][alkuY];
+		lauta[alkuX][alkuY] = NULL;
 	}
 
 	int Asema::getSiirtovuoro() {
