@@ -89,26 +89,23 @@ Siirto Kayttoliittyma::annaVastustajanSiirto() {
 	while (syote[pituus] != '\0') {
 		pituus++;
 	}
-	if (pituus == 5) {
-		syote[0] = syote[0] - 'a';
-		syote[1] = syote[1] - '0';
-		syote[3] = syote[3] - 'a';
-		syote[4] = syote[4] - '0';
-		Ruutu alkuruutu = Ruutu((int)syote[1] - 1, (int)syote[0]);
-		Ruutu loppuruutu = Ruutu((int)syote[4] - 1, (int)syote[3]);
-		std::wcout << (int)syote[0] << (int)syote[1] - 1 << "-";
-		std::wcout << (int)syote[3] << (int)syote[4] - 1 << std::endl;
-		return Siirto(alkuruutu, loppuruutu);
+
+	if (pituus == 6) {
+		std::wcout << "syote alkaa " << syote << std::endl;
+		for (int i = 0; i < 6; i++) {
+			syote[i] = syote[i + 1];
+		}
+		std::wcout << "syote paattyy " << syote << std::endl;
 	}
 
-	syote[1] = syote[1] - 'a';
-	syote[2] = syote[2] - '0';
-	syote[4] = syote[4] - 'a';
-	syote[5] = syote[5] - '0';
-	Ruutu alkuruutu = Ruutu((int)syote[2] - 1, (int)syote[1]);
-	Ruutu loppuruutu = Ruutu((int)syote[5] - 1, (int)syote[4]);
-	std::wcout << (int)syote[1] << (int)syote[2] - 1 << "-";
-	std::wcout << (int)syote[4] << (int)syote[5] - 1 << std::endl;
+	syote[0] = syote[0] - 'a';
+	syote[1] = syote[1] - '0';
+	syote[3] = syote[3] - 'a';
+	syote[4] = syote[4] - '0';
+	Ruutu alkuruutu = Ruutu((int)syote[1] - 1, (int)syote[0]);
+	Ruutu loppuruutu = Ruutu((int)syote[4] - 1, (int)syote[3]);
+	std::wcout << (int)syote[0] << (int)syote[1] - 1 << "-";
+	std::wcout << (int)syote[3] << (int)syote[4] - 1 << std::endl;
 	return Siirto(alkuruutu, loppuruutu);
 }
 
