@@ -1,4 +1,5 @@
 #include "ruutu.h"
+#pragma once
 
 class Siirto {
 public:

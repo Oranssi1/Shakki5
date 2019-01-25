@@ -21,5 +21,6 @@ int main() {
 //	kayttoliittyma->annaVastustajanSiirto();
 	kayttoliittyma->piirraLauta();
 	// Heinin koodi---------------------------------------------|
+	kayttoliittyma->annaVastustajanSiirto();
 	return 0;
 }
