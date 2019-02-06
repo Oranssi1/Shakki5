@@ -56,121 +56,126 @@ Asema::Asema() {
 		lauta[i][1] = lauta[0][1];
 		lauta[i][6] = lauta[0][6];
 	}
+
+	_siirtovuoro = 0;
+	_onkoValkeaKuningasLiikkunut = false;
+	_onkoMustaKuningasLiikkunut = false;
+	_onkoValkeaDTliikkunut = false;
+	_onkoValkeaKTliikkunut = false;
+	_onkoMustaDTliikkunut = false;
+	_onkoMustaKTliikkunut = false;
 }
 
 	void Asema::paivitaAsema(Siirto* siirto) {
-		Ruutu alkuruutu = siirto->getAlkuruutu();
-		int alkuX = alkuruutu.getSarake();
-		int alkuY = alkuruutu.getRivi();
-		Nappula* sijainti = lauta[alkuX][alkuY];
-		int nappula = sijainti->getKoodi();
-		Ruutu loppuruutu = siirto->getLoppuruutu();
-		int loppuX = loppuruutu.getSarake();
-		int loppuY = loppuruutu.getRivi();
 
-		switch (nappula) {
-		case VK:
-			onkoValkeaKuningasLiikkunut = true;
-			break;
-		case MK:
-			onkoMustaKuningasLiikkunut = true;
-			break;
-		case VT:
-			if (alkuX != 0 & alkuY != 0)
-			{
-				onkoValkeaDTliikkunut = true;
-				break;
+		if (siirto->onkoLyhytLinna()) {
+			if (_siirtovuoro == 0) {
+				_lauta[6][0] = _lauta[4][0];
+				_lauta[4][0] = NULL;
+				_lauta[5][0] = _lauta[7][0];
+				_lauta[7][0] = NULL;
 			}
-			onkoValkeaKTliikkunut = true;
-			break;
-		case MT:
-			if (alkuX != 0 & alkuY != 7)
-			{
-				onkoMustaDTliikkunut = true;
-				break;
-			}
-			onkoMustaKTliikkunut = true;
-			break;
-		}
-		lauta[loppuX][loppuY] = lauta[alkuX][alkuY];
-		lauta[alkuX][alkuY] = NULL;
 
-		if (siirtovuoro == 1) {
-			siirtovuoro = 0;
+			if (_siirtovuoro == 1) {
+				_lauta[6][7] = _lauta[4][7];
+				_lauta[4][7] = NULL;
+				_lauta[5][7] = _lauta[7][7];
+				_lauta[7][7] = NULL;
+			}
 		}
+
+		else if (siirto->onkoPitkälinna()) {
+			if (_siirtovuoro == 0) {
+				_lauta[2][0] = _lauta[4][0];
+				_lauta[4][0] = NULL;
+				_lauta[3][0] = _lauta[0][0];
+				_lauta[0][0] = NULL;
+			}
+
+			if (_siirtovuoro == 1) {
+				_lauta[2][7] = _lauta[4][7];
+				_lauta[4][7] = NULL;
+				_lauta[3][7] = _lauta[0][7];
+				_lauta[0][7] = NULL;
+			}
+		}
+
 		else {
-			siirtovuoro = 1;
+			Ruutu alkuruutu = siirto->getAlkuruutu();
+			int alkuX = alkuruutu.getSarake();
+			int alkuY = alkuruutu.getRivi();
+			Nappula* sijainti = lauta[alkuX][alkuY];
+			int nappula = sijainti->getKoodi();
+			Ruutu loppuruutu = siirto->getLoppuruutu();
+			int loppuX = loppuruutu.getSarake();
+			int loppuY = loppuruutu.getRivi();
+
+			switch (nappula) {
+			case VK:
+				onkoValkeaKuningasLiikkunut = true;
+				break;
+			case MK:
+				onkoMustaKuningasLiikkunut = true;
+				break;
+			case VT:
+				if (alkuX != 0 & alkuY != 0)
+				{
+					onkoValkeaDTliikkunut = true;
+					break;
+				}
+				onkoValkeaKTliikkunut = true;
+				break;
+			case MT:
+				if (alkuX != 0 & alkuY != 7)
+				{
+					onkoMustaDTliikkunut = true;
+					break;
+				}
+				onkoMustaKTliikkunut = true;
+				break;
+			}
+			lauta[loppuX][loppuY] = lauta[alkuX][alkuY];
+			lauta[alkuX][alkuY] = NULL;
+
+			if (siirtovuoro == 1) {
+				siirtovuoro = 0;
+			}
+			else {
+				siirtovuoro = 1;
+			}
 		}
 	}
 
-	int Asema::getSiirtovuoro() {
-		return siirtovuoro;
-	}
+int Asema::getSiirtovuoro() {
+	return siirtovuoro;
+}
 
-	void Asema::setSiirtovuoro(int vari) {
-		siirtovuoro = vari;
-	}
+void Asema::setSiirtovuoro(int vari) {
+	siirtovuoro = vari;
+}
 
-	bool Asema::getOnkoValkeaKuningasLiikkunut() {
-		return onkoValkeaKuningasLiikkunut;
-	}
+bool Asema::getOnkoValkeaKuningasLiikkunut() {
+	return onkoValkeaKuningasLiikkunut;
+}
 
-	bool Asema::getOnkoMustaKuningasLiikkunut() {
-		return onkoMustaKuningasLiikkunut;
-	}
+bool Asema::getOnkoMustaKuningasLiikkunut() {
+	return onkoMustaKuningasLiikkunut;
+}
 
-	bool Asema::getOnkoValkeaDTliikkunut() {
-		return onkoValkeaDTliikkunut;
-	}
+bool Asema::getOnkoValkeaDTliikkunut() {
+	return onkoValkeaDTliikkunut;
+}
 
-	bool Asema::getOnkoValkeaKTliikkunut() {
-		return onkoValkeaKTliikkunut;
-	}
+bool Asema::getOnkoValkeaKTliikkunut() {
+	return onkoValkeaKTliikkunut;
+}
 
-	bool Asema::getOnkoMustaDTliikkunut() {
-		return onkoMustaDTliikkunut;
-	}
+bool Asema::getOnkoMustaDTliikkunut() {
+	return onkoMustaDTliikkunut;
+}
 
-	bool Asema::getOnkoMustaKTliikkunut() {
-		return onkoMustaKTliikkunut;
-	}
+bool Asema::getOnkoMustaKTliikkunut() {
+	return onkoMustaKTliikkunut;
+}
 
-	// Heinin koodi
-	// lauta[0][0] = vt;
-	// lauta[1][0] = vr;
-	// lauta[2][0] = vl;
-	// lauta[3][0] = vd;
-	// lauta[4][0] = vk;
-	// lauta[5][0] = vl;
-	// lauta[6][0] = vr;
-	// lauta[7][0] = vt;
-
-	// lauta[0][1] = vs;
-	// lauta[1][1] = vs;
-	// lauta[2][1] = vs;
-	// lauta[2][1] = vs;
-	// lauta[3][1] = vs;
-	// lauta[4][1] = vs;
-	// lauta[5][1] = vs;
-	// lauta[6][1] = vs;
-	// lauta[7][1] = vs;
-
-	// lauta[0][7] = mt;
-	// lauta[1][7] = mr;
-	// lauta[2][7] = ml;
-	// lauta[3][7] = md;
-	// lauta[4][7] = mk;
-	// lauta[5][7] = ml;
-	// lauta[6][7] = mr;
-	// lauta[7][7] = mt;
-
-	// lauta[0][6] = ms;
-	// lauta[1][6] = ms;
-	// lauta[2][6] = ms;
-	// lauta[2][6] = ms;
-	// lauta[3][6] = ms;
-	// lauta[4][6] = ms;
-	// lauta[5][6] = ms;
-	// lauta[6][6] = ms;
-	// lauta[7][6] = ms;
 
