@@ -77,13 +77,11 @@ Siirto* Kayttoliittyma::annaVastustajanSiirto() {
 	std::wcin >> syote;
 
 	if (syote == L"O-O") {
-		Siirto* siirto = new Siirto(1, 0);
-		return siirto;
+		return Siirto(1, 0);
 	}
 
 	else if (syote == L"O-O-O") {
-		Siirto* siirto = new Siirto(0, 1);
-		return siirto;
+		return Siirto(0, 1);
 	} 
 
 	int pituus = 0;
