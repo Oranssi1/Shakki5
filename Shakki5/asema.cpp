@@ -26,35 +26,35 @@
 Asema::Asema() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
-			lauta[i][j] = NULL;
+			_lauta[i][j] = NULL;
 		}
 	}
 
-	lauta[0][0] = new Nappula(L"\u2656", 0, VT);
-	lauta[1][0] = new Nappula(L"\u2658", 0, VR);
-	lauta[2][0] = new Nappula(L"\u2657", 0, VL);
-	lauta[3][0] = new Nappula(L"\u2655", 0, VD);
-	lauta[4][0] = new Nappula(L"\u2654", 0, VK);
-	lauta[0][1] = new Nappula(L"\u2659", 0, VS);
+	_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
+	_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
+	_lauta[2][0] = new Nappula(L"\u2657", 0, VL);
+	_lauta[3][0] = new Nappula(L"\u2655", 0, VD);
+	_lauta[4][0] = new Nappula(L"\u2654", 0, VK);
+	_lauta[0][1] = new Nappula(L"\u2659", 0, VS);
 
-	lauta[0][7] = new Nappula(L"\u265C", 1, MT);
-	lauta[1][7] = new Nappula(L"\u265E", 1, MR);
-	lauta[2][7] = new Nappula(L"\u265D", 1, ML);
-	lauta[3][7] = new Nappula(L"\u265A", 1, MK);
-	lauta[4][7] = new Nappula(L"\u265B", 1, MD);
-	lauta[0][6] = new Nappula(L"\u265F", 1, MS);
+	_lauta[0][7] = new Nappula(L"\u265C", 1, MT);
+	_lauta[1][7] = new Nappula(L"\u265E", 1, MR);
+	_lauta[2][7] = new Nappula(L"\u265D", 1, ML);
+	_lauta[3][7] = new Nappula(L"\u265A", 1, MK);
+	_lauta[4][7] = new Nappula(L"\u265B", 1, MD);
+	_lauta[0][6] = new Nappula(L"\u265F", 1, MS);
 
-	lauta[5][0] = lauta[2][0];
-	lauta[6][0] = lauta[1][0];
-	lauta[7][0] = lauta[0][0];
+	_lauta[5][0] = _lauta[2][0];
+	_lauta[6][0] = _lauta[1][0];
+	_lauta[7][0] = _lauta[0][0];
 
-	lauta[5][7] = lauta[2][7];
-	lauta[6][7] = lauta[1][7];
-	lauta[7][7] = lauta[0][7];
+	_lauta[5][7] = _lauta[2][7];
+	_lauta[6][7] = _lauta[1][7];
+	_lauta[7][7] = _lauta[0][7];
 
 	for (int i = 0; i < 8; i++) {
-		lauta[i][1] = lauta[0][1];
-		lauta[i][6] = lauta[0][6];
+		_lauta[i][1] = _lauta[0][1];
+		_lauta[i][6] = _lauta[0][6];
 	}
 
 	_siirtovuoro = 0;
@@ -84,7 +84,7 @@ Asema::Asema() {
 			}
 		}
 
-		else if (siirto->onkoPitkälinna()) {
+		else if (siirto->onkoPitkalinna()) {
 			if (_siirtovuoro == 0) {
 				_lauta[2][0] = _lauta[4][0];
 				_lauta[4][0] = NULL;
@@ -101,10 +101,11 @@ Asema::Asema() {
 		}
 
 		else {
+			std::cout << "HALOOOOO!!!!!";
 			Ruutu alkuruutu = siirto->getAlkuruutu();
 			int alkuX = alkuruutu.getSarake();
 			int alkuY = alkuruutu.getRivi();
-			Nappula* sijainti = lauta[alkuX][alkuY];
+			Nappula* sijainti = _lauta[alkuX][alkuY];
 			int nappula = sijainti->getKoodi();
 			Ruutu loppuruutu = siirto->getLoppuruutu();
 			int loppuX = loppuruutu.getSarake();
@@ -112,70 +113,70 @@ Asema::Asema() {
 
 			switch (nappula) {
 			case VK:
-				onkoValkeaKuningasLiikkunut = true;
+				_onkoValkeaKuningasLiikkunut = true;
 				break;
 			case MK:
-				onkoMustaKuningasLiikkunut = true;
+				_onkoMustaKuningasLiikkunut = true;
 				break;
 			case VT:
 				if (alkuX != 0 & alkuY != 0)
 				{
-					onkoValkeaDTliikkunut = true;
+					_onkoValkeaDTliikkunut = true;
 					break;
 				}
-				onkoValkeaKTliikkunut = true;
+				_onkoValkeaKTliikkunut = true;
 				break;
 			case MT:
 				if (alkuX != 0 & alkuY != 7)
 				{
-					onkoMustaDTliikkunut = true;
+					_onkoMustaDTliikkunut = true;
 					break;
 				}
-				onkoMustaKTliikkunut = true;
+				_onkoMustaKTliikkunut = true;
 				break;
 			}
-			lauta[loppuX][loppuY] = lauta[alkuX][alkuY];
-			lauta[alkuX][alkuY] = NULL;
+			_lauta[loppuX][loppuY] = _lauta[alkuX][alkuY];
+			_lauta[alkuX][alkuY] = NULL;
 
-			if (siirtovuoro == 1) {
-				siirtovuoro = 0;
+			if (_siirtovuoro == 1) {
+				_siirtovuoro = 0;
 			}
 			else {
-				siirtovuoro = 1;
+				_siirtovuoro = 1;
 			}
 		}
 	}
 
 int Asema::getSiirtovuoro() {
-	return siirtovuoro;
+	return _siirtovuoro;
 }
 
 void Asema::setSiirtovuoro(int vari) {
-	siirtovuoro = vari;
+	_siirtovuoro = vari;
 }
 
 bool Asema::getOnkoValkeaKuningasLiikkunut() {
-	return onkoValkeaKuningasLiikkunut;
+	return _onkoValkeaKuningasLiikkunut;
 }
 
 bool Asema::getOnkoMustaKuningasLiikkunut() {
-	return onkoMustaKuningasLiikkunut;
+	return _onkoMustaKuningasLiikkunut;
 }
 
 bool Asema::getOnkoValkeaDTliikkunut() {
-	return onkoValkeaDTliikkunut;
+	return _onkoValkeaDTliikkunut;
 }
 
 bool Asema::getOnkoValkeaKTliikkunut() {
-	return onkoValkeaKTliikkunut;
+	return _onkoValkeaKTliikkunut;
 }
 
 bool Asema::getOnkoMustaDTliikkunut() {
-	return onkoMustaDTliikkunut;
+	return _onkoMustaDTliikkunut;
 }
 
 bool Asema::getOnkoMustaKTliikkunut() {
-	return onkoMustaKTliikkunut;
+	return _onkoMustaKTliikkunut;
 }
 
 

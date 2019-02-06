@@ -15,7 +15,7 @@ class Asema : public Nappula {
 
 public:
 	Asema();
-	Nappula* lauta[8][8];
+	Nappula* _lauta[8][8];
 	
 	void paivitaAsema(Siirto* siirto);
 	int getSiirtovuoro();
@@ -28,13 +28,13 @@ public:
 	bool getOnkoMustaKTliikkunut();
 	
 private:
-	int siirtovuoro;
-	bool onkoValkeaKuningasLiikkunut;
-	bool onkoMustaKuningasLiikkunut;
-	bool onkoValkeaDTliikkunut;
-	bool onkoValkeaKTliikkunut;
-	bool onkoMustaDTliikkunut;
-	bool onkoMustaKTliikkunut;
+	int _siirtovuoro;
+	bool _onkoValkeaKuningasLiikkunut;
+	bool _onkoMustaKuningasLiikkunut;
+	bool _onkoValkeaDTliikkunut;
+	bool _onkoValkeaKTliikkunut;
+	bool _onkoMustaDTliikkunut;
+	bool _onkoMustaKTliikkunut;
 };
 
 	// Heinin koodi

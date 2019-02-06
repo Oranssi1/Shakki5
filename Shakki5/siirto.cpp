@@ -5,7 +5,7 @@ Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu) {
 	_alkuRuutu = alkuruutu;
 	_loppuRuutu = loppuruutu;
 	_lyhytLinna = false;
-	_pitkaLinna = false;
+	_pitkalinna = false;
 }
 
 // Poikkeussiirto linnoitusta varten

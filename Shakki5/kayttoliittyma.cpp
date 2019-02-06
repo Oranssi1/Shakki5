@@ -35,11 +35,11 @@ void Kayttoliittyma::piirraLauta() {
 					std::wcout << " ";
 				}
 
-				if (_asema->lauta[x][y-1] == nullptr) {
+				if (_asema->_lauta[x][y-1] == nullptr) {
 					std::wcout << L"  ";
 				}
 				else {
-					std::wcout << _asema->lauta[x][y-1]->getUnicode();
+					std::wcout << _asema->_lauta[x][y-1]->getUnicode();
 					std::wcout << L" ";
 				}
 			}
@@ -57,11 +57,11 @@ void Kayttoliittyma::piirraLauta() {
 					std::wcout << " ";
 				}
 
-				if (_asema->lauta[x][y-1] == nullptr) {
+				if (_asema->_lauta[x][y-1] == nullptr) {
 					std::wcout << L"  ";
 				}
 				else {
-					std::wcout << _asema->lauta[x][y-1]->getUnicode();
+					std::wcout << _asema->_lauta[x][y-1]->getUnicode();
 					std::wcout << L" ";
 				}
 			}
@@ -108,7 +108,3 @@ Siirto* Kayttoliittyma::annaVastustajanSiirto() {
 	Siirto* siirto = new Siirto(alkuruutu, loppuruutu);
 	return siirto;
 }
-
-
-
-
