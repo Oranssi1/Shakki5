@@ -27,5 +27,5 @@ bool Siirto::onkoLyhytLinna() {
 }
 
 bool Siirto::onkoPitkaLinna() {
-	return _lyhytLinna;
+	return _pitkaLinna;
 }

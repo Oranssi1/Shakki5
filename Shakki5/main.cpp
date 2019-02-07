@@ -15,15 +15,14 @@
 // Heinin koodi-------------|
 
 int main() {
-	// Heinin koodi---------------------------------------------|
+
 	Asema* asema = new Asema();
 	asema->setSiirtovuoro(0);
 	Kayttoliittyma* kayttoliittyma = new Kayttoliittyma(asema);
-//	kayttoliittyma->annaVastustajanSiirto();
-	kayttoliittyma->piirraLauta();
-	// Heinin koodi---------------------------------------------|
-	asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
-	kayttoliittyma->piirraLauta();
+	while (true) {
+		kayttoliittyma->piirraLauta();
+		asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
+	}
 
 	return 0;
 }

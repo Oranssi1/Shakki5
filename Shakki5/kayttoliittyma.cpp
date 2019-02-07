@@ -68,43 +68,57 @@ void Kayttoliittyma::piirraLauta() {
 		}
 		std::wcout << std::endl;
 	}
-	// Heinin koodi--------------------------------------------------------------------------------------------------------|
 }
 
 Siirto* Kayttoliittyma::annaVastustajanSiirto() {
 	std::wstring syote;
-	std::wcout << "Anna vastustajan siirto: ";
-	std::wcin >> syote;
+	bool virhe = 0;
+	do {
+		virhe = 0;
+		std::wcout << "Anna vastustajan siirto: ";
+		std::wcin >> syote;
 
-	if (syote == L"O-O") {
-		Siirto* temp = new Siirto(1, 0);
-		return temp;
-	}
-
-	else if (syote == L"O-O-O") {
-		Siirto* temp = new Siirto(0, 1);
-		return temp;
-	} 
-
-	int pituus = 0;
-	while (syote[pituus] != '\0') {
-		pituus++;
-	}
-
-	if (pituus == 6) {
-		for (int i = 0; i < 5; i++) {
-			syote[i] = syote[i + 1];
+		if (syote == L"O-O") {
+			Siirto* temp = new Siirto(1, 0);
+			return temp;
 		}
-	}
 
-	syote[0] = syote[0] - 'a';
-	syote[1] = syote[1] - '0';
-	syote[3] = syote[3] - 'a';
-	syote[4] = syote[4] - '0';
+		else if (syote == L"O-O-O") {
+			Siirto* temp = new Siirto(0, 1);
+			return temp;
+		}
+
+		int pituus = 0;
+		while (syote[pituus] != '\0') {
+			pituus++;
+		}
+
+		if (pituus == 6) {
+			for (int i = 0; i < 5; i++) {
+				syote[i] = syote[i + 1];
+			}
+		}
+
+		if (pituus < 5) {
+			virhe = 1;
+		}
+		else {
+			syote[0] = syote[0] - 'a';
+			syote[1] = syote[1] - '0';
+			syote[3] = syote[3] - 'a';
+			syote[4] = syote[4] - '0';
+		}
+
+		if (syote[0] > 7 || syote[1] > 7 || syote[3] > 7 || syote[4] > 7 || syote[0] < 0 || syote[1] < 0 || syote[3] < 0 || syote[4] < 0)
+		{
+			virhe = 1;
+			std::wcout << "Virheellinen syöte" << std::endl;
+		}
+
+	} while (virhe);
+
 	Ruutu alkuruutu = Ruutu((int)syote[1] - 1, (int)syote[0]);
 	Ruutu loppuruutu = Ruutu((int)syote[4] - 1, (int)syote[3]);
-	std::wcout << (int)syote[0] << (int)syote[1] - 1 << "-";
-	std::wcout << (int)syote[3] << (int)syote[4] - 1 << std::endl;
 	Siirto* siirto = new Siirto(alkuruutu, loppuruutu);
 	return siirto;
 }
