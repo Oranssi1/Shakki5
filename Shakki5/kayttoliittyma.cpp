@@ -77,11 +77,13 @@ Siirto* Kayttoliittyma::annaVastustajanSiirto() {
 	std::wcin >> syote;
 
 	if (syote == L"O-O") {
-		return Siirto(1, 0);
+		Siirto* temp = new Siirto(1, 0);
+		return temp;
 	}
 
 	else if (syote == L"O-O-O") {
-		return Siirto(0, 1);
+		Siirto* temp = new Siirto(0, 1);
+		return temp;
 	} 
 
 	int pituus = 0;
