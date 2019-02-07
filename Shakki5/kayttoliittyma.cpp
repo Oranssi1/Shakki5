@@ -72,7 +72,7 @@ void Kayttoliittyma::piirraLauta() {
 
 Siirto* Kayttoliittyma::annaVastustajanSiirto() {
 	std::wstring syote;
-	bool virhe;
+	bool virhe = 0;
 	do {
 		virhe = 0;
 		std::wcout << "Anna vastustajan siirto: ";
