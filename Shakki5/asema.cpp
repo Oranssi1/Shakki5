@@ -7,6 +7,7 @@
 //
 
 #include "asema.h"
+#include <iostream>
 
 // Heinin koodi
 // Nappula* Asema::vk = new Nappula(L"\u2654", 0, VK)
@@ -67,7 +68,7 @@ Asema::Asema() {
 }
 
 	void Asema::paivitaAsema(Siirto* siirto) {
-
+		
 		if (siirto->onkoLyhytLinna()) {
 			if (_siirtovuoro == 0) {
 				_lauta[6][0] = _lauta[4][0];
@@ -84,7 +85,7 @@ Asema::Asema() {
 			}
 		}
 
-		else if (siirto->onkoPitkalinna()) {
+		else if (siirto->onkoPitkaLinna()) {
 			if (_siirtovuoro == 0) {
 				_lauta[2][0] = _lauta[4][0];
 				_lauta[4][0] = NULL;
@@ -99,9 +100,8 @@ Asema::Asema() {
 				_lauta[0][7] = NULL;
 			}
 		}
-
-		else {
-			std::cout << "HALOOOOO!!!!!";
+		
+		else { 
 			Ruutu alkuruutu = siirto->getAlkuruutu();
 			int alkuX = alkuruutu.getSarake();
 			int alkuY = alkuruutu.getRivi();
