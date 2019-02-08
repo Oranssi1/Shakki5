@@ -19,7 +19,7 @@ enum {
 
 class Nappula {
 
-private:
+protected:
 	std::wstring _unicode;
 	int _vari;
 	int _koodi;
@@ -47,7 +47,11 @@ public:
 class Torni : virtual public Nappula {
 public:
 
-	Torni(std::wstring, int, int) {}
+	Torni(std::wstring unicode, int vari, int koodi) {
+		_vari = vari;
+		_koodi = koodi;
+		_unicode = unicode;
+	}
 
 	virtual void annaSiirrot(
 		std::list<Siirto>& lista,

@@ -17,10 +17,10 @@ Asema::Asema() {
 		}
 	}
 
-	_lauta[0][0] = new Torni(L"\u2656", 0, VT);
+	_lauta[3][3] = new Torni(L"\u2656", 0, VT);
 	//_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
 	//_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
-	//_lauta[2][0] = new Nappula(L"\u2657", 0, VL);
+	//_lauta[2][0] = new Nappula(L5"\u2657", 0, VL);
 	//_lauta[3][0] = new Nappula(L"\u2655", 0, VD);
 	//_lauta[4][0] = new Nappula(L"\u2654", 0, VK);
 	//_lauta[0][1] = new Nappula(L"\u2659", 0, VS);
