@@ -7,6 +7,7 @@
 //
 
 #include "kayttoliittyma.h"
+#include "nappula.h"
 #include <iostream>
 #include <string>
 

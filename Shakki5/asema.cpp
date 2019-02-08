@@ -8,6 +8,7 @@
 
 #include "asema.h"
 #include <iostream>
+#include "nappula.h"
 
 Asema::Asema() {
 	for (int i = 0; i < 8; i++) {
@@ -16,19 +17,20 @@ Asema::Asema() {
 		}
 	}
 
-	_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
-	_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
-	_lauta[2][0] = new Nappula(L"\u2657", 0, VL);
-	_lauta[3][0] = new Nappula(L"\u2655", 0, VD);
-	_lauta[4][0] = new Nappula(L"\u2654", 0, VK);
-	_lauta[0][1] = new Nappula(L"\u2659", 0, VS);
+	_lauta[0][0] = new Torni(L"\u2656", 0, VT);
+	//_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
+	//_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
+	//_lauta[2][0] = new Nappula(L"\u2657", 0, VL);
+	//_lauta[3][0] = new Nappula(L"\u2655", 0, VD);
+	//_lauta[4][0] = new Nappula(L"\u2654", 0, VK);
+	//_lauta[0][1] = new Nappula(L"\u2659", 0, VS);
 
-	_lauta[0][7] = new Nappula(L"\u265C", 1, MT);
-	_lauta[1][7] = new Nappula(L"\u265E", 1, MR);
-	_lauta[2][7] = new Nappula(L"\u265D", 1, ML);
-	_lauta[3][7] = new Nappula(L"\u265A", 1, MK);
-	_lauta[4][7] = new Nappula(L"\u265B", 1, MD);
-	_lauta[0][6] = new Nappula(L"\u265F", 1, MS);
+	//_lauta[0][7] = new Nappula(L"\u265C", 1, MT);
+	//_lauta[1][7] = new Nappula(L"\u265E", 1, MR);
+	//_lauta[2][7] = new Nappula(L"\u265D", 1, ML);
+	//_lauta[3][7] = new Nappula(L"\u265A", 1, MK);
+	//_lauta[4][7] = new Nappula(L"\u265B", 1, MD);
+	//_lauta[0][6] = new Nappula(L"\u265F", 1, MS);
 
 	_lauta[5][0] = _lauta[2][0];
 	_lauta[6][0] = _lauta[1][0];
@@ -104,7 +106,7 @@ Asema::Asema() {
 				_onkoMustaKuningasLiikkunut = true;
 				break;
 			case VT:
-				if (alkuX != 0 & alkuY != 0)
+				if (alkuX != 0 && alkuY != 0)
 				{
 					_onkoValkeaDTliikkunut = true;
 					break;
@@ -112,7 +114,7 @@ Asema::Asema() {
 				_onkoValkeaKTliikkunut = true;
 				break;
 			case MT:
-				if (alkuX != 0 & alkuY != 7)
+				if (alkuX != 0 && alkuY != 7)
 				{
 					_onkoMustaDTliikkunut = true;
 					break;
