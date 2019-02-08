@@ -147,8 +147,12 @@ public:
 class Lahetti : virtual public Nappula {
 public:
 
-	Lahetti(std::wstring, int,int) {}
-	
+	Lahetti(std::wstring unicode, int vari, int koodi) {
+		_vari = vari;
+		_koodi = koodi;
+		_unicode = unicode;
+	}
+
 	virtual void annaSiirrot(
 		std::list<Siirto>& lista,
 		Ruutu* ruutu,
