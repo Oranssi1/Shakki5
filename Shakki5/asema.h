@@ -7,10 +7,13 @@
 //
 
 #pragma once
-#include "nappula.h"
+//#include "nappula.h"
 #include "siirto.h"
 
-class Asema : public Nappula {
+class Nappula;
+
+
+class Asema {
 
 public:
 	Asema();
