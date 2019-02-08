@@ -8,7 +8,7 @@
 
 #pragma once
 #include <string>
-#include <iostream> // Heinin koodi
+#include <iostream>
 
 enum {
 	VT, VR, VL, VD, VK, VS,
@@ -32,4 +32,3 @@ public:
 	void setVari(int);
 	int getVari();
 };
-

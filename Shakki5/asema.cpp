@@ -9,21 +9,6 @@
 #include "asema.h"
 #include <iostream>
 
-// Heinin koodi
-// Nappula* Asema::vk = new Nappula(L"\u2654", 0, VK)
-// Nappula* Asema::vd = new Nappula(L"\u2655", 0, VD)
-// Nappula* Asema::vt = new Nappula(L"\u2656", 0, VT)
-// Nappula* Asema::vl = new Nappula(L"\u2657", 0, VL)
-// Nappula* Asema::vr = new Nappula(L"\u2658", 0, VR)
-// Nappula* Asema::vs = new Nappula(L"\u2659", 0, VS)
-
-// Nappula* Asema::mk = new Nappula(L"\u265A", 1, MK)
-// Nappula* Asema::md = new Nappula(L"\u265B", 1, MD)
-// Nappula* Asema::mt = new Nappula(L"\u265C", 1, MT)
-// Nappula* Asema::ml = new Nappula(L"\u265D", 1, ML)
-// Nappula* Asema::mr = new Nappula(L"\u265E", 1, MR)
-// Nappula* Asema::ms = new Nappula(L"\u265F", 1, MS)
-
 Asema::Asema() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {

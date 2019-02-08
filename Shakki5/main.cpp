@@ -7,12 +7,10 @@
 //
 
 #include "kayttoliittyma.h"
-// Heinin koodi-------------|
 #include <iostream>
 #include <Windows.h>
 #include "Nappula.h"
 #include "Asema.h"
-// Heinin koodi-------------|
 
 int main() {
 

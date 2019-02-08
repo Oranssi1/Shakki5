@@ -7,7 +7,6 @@
 //
 
 #include "asema.h"
-// Heinin koodi------|
 #include <Windows.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -16,7 +15,6 @@
 #include <utility>
 #include <string>
 #include "siirto.h"
-//-------------------|
 
 class Kayttoliittyma {
 

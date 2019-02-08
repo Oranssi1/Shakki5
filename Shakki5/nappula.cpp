@@ -7,7 +7,7 @@
 //
 
 #include "nappula.h"
-#include <iostream> // Heinin koodi
+#include <iostream>
 
 Nappula::Nappula(std::wstring unicode, int vari, int koodi) {
 	_vari = vari;

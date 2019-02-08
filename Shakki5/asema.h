@@ -10,7 +10,6 @@
 #include "nappula.h"
 #include "siirto.h"
 
-//Lisätty ": public Nappula" Heinin koodista
 class Asema : public Nappula {
 
 public:
@@ -36,20 +35,4 @@ private:
 	bool _onkoMustaDTliikkunut;
 	bool _onkoMustaKTliikkunut;
 };
-
-	// Heinin koodi
-	// static Nappula* vk;
-	// static Nappula* vd;
-	// static Nappula* vt;
-	// static Nappula* vl;
-	// static Nappula* vr;
-	// static Nappula* vs;
-
-	// static Nappula* mk;
-	// static Nappula* md;
-	// static Nappula* mt;
-	// static Nappula* ml;
-	// static Nappula* mr;
-	// static Nappula* ms;
-
 

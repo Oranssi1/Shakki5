@@ -19,7 +19,6 @@ Kayttoliittyma::Kayttoliittyma(Asema* asema) {
 }
 
 void Kayttoliittyma::piirraLauta() {
-	// Heinin koodi--------------------------------------------------------------------------------------------------------|
 	_setmode(_fileno(stdout), _O_U16TEXT);
 
 	for (int y = 8; y > 0; y--) {
