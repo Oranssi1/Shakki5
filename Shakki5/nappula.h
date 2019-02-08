@@ -141,6 +141,10 @@ public:
 };
 
 class Lahetti : virtual public Nappula {
+public:
+
+	Lahetti(std::wstring, int,int) {}
+	
 	virtual void annaSiirrot(
 		std::list<Siirto>& lista,
 		Ruutu* ruutu,
