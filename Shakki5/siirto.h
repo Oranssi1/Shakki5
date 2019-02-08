@@ -1,3 +1,10 @@
+//
+//  siirto.h
+//  Chess
+//
+//  Created by Nico Behnen on 23/01/2019.
+//  Copyright © 2019 B & J Corp. All rights reserved.
+//
 #include "ruutu.h"
 #pragma once
 

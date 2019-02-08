@@ -1,3 +1,10 @@
+//
+//  siirto.cpp
+//  Chess
+//
+//  Created by Nico Behnen on 23/01/2019.
+//  Copyright © 2019 B & J Corp. All rights reserved.
+//
 #include <iostream>
 #include "siirto.h"
 
