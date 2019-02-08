@@ -76,3 +76,119 @@ class Torni : virtual public Nappula {
 		}
 	}
 };
+
+class Lahetti : virtual public Nappula {
+	virtual void annaSiirrot(
+		std::list<Siirto>& lista,
+		Ruutu* ruutu,
+		Asema* asema,
+		int vari
+	)
+	{
+		int x = ruutu->getSarake();
+		int y = ruutu->getRivi();
+
+		for (int i = 1; i <= 7; i++) {
+			int new_x = x + i;
+			int new_y = y + i;
+			if (new_y > 7 || new_x > 7) {
+				break;
+			}
+
+			Nappula* n = asema->_lauta[new_x][new_y];
+
+			if (n == nullptr) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				continue;
+			}
+			if (n->getVari() != vari) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+			}
+
+			break;
+		}
+
+		for (int i = 1; i <= 7; i++) {
+			int new_x = x + i;
+			int new_y = y - i;
+			if (new_y < 0 || new_x > 7) {
+				break;
+			}
+
+			Nappula* n = asema->_lauta[new_x][new_y];
+
+			if (n == nullptr) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				continue;
+			}
+			if (n->getVari() != vari) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+			}
+
+			break;
+		}
+
+		for (int i = 1; i <= 7; i++) {
+			int new_x = x - i;
+			int new_y = y - i;
+			if (new_y < 0 || new_x < 0) {
+				break;
+			}
+
+			Nappula* n = asema->_lauta[new_x][new_y];
+
+			if (n == nullptr) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				continue;
+			}
+			if (n->getVari() != vari) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+			}
+
+			break;
+		}
+
+		for (int i = 1; i <= 7; i++) {
+			int new_x = x - i;
+			int new_y = y + i;
+			if (new_y > 7 || new_x < 0) {
+				break;
+			}
+
+			Nappula* n = asema->_lauta[new_x][new_y];
+
+			if (n == nullptr) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				continue;
+			}
+			if (n->getVari() != vari) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+			}
+
+			break;
+		}
+	}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
