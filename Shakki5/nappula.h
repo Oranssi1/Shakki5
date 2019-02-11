@@ -188,6 +188,7 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				std::wcout << "asd1";
 				continue;
 			}
 			if (n->getVari() != vari) {
@@ -208,6 +209,7 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				std::wcout << "asd2";
 				continue;
 			}
 			if (n->getVari() != vari) {
@@ -228,6 +230,7 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				std::wcout << "asd3";
 				continue;
 			}
 			if (n->getVari() != vari) {
@@ -248,6 +251,7 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				std::wcout << "asd4";
 				continue;
 			}
 			if (n->getVari() != vari) {

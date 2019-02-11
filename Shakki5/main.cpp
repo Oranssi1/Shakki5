@@ -21,15 +21,17 @@ int main() {
 	std::list<Siirto> lista;
 //	while (true) {
 		kayttoliittyma->piirraLauta();
-		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3,3), asema, 1);
+//		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3,3), asema, 0);
+		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3, 3), asema, 0);
 //		asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
 //	}
-		std::wcout << lista.size();
-		for (int i = 0; i < 15; i++) {
+
+		for (auto s : lista)
+		{
 			Ruutu ruutu;
-			Siirto siirto;
-			ruutu = lista.begin(i)->getLoppuRuutu;
-			std::wcout << "testi";
+			ruutu = s.getLoppuruutu();
+			std::wcout << ruutu.getRivi() << "/" << ruutu.getSarake() << std::endl;
+
 		}
 
 	return 0;

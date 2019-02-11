@@ -17,8 +17,8 @@ Asema::Asema() {
 		}
 	}
 
-	_lauta[3][3] = new Torni(L"\u2656", 0, VT);
-	_lauta[5][2] = new Lahetti(L"\u2657", 0, VL);
+	_lauta[4][4] = new Torni(L"\u2656", 0, VT);
+	_lauta[3][3] = new Lahetti(L"\u2657", 0, VL);
 	//_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
 	//_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
 	//_lauta[2][0] = new Nappula(L5"\u2657", 0, VL);
@@ -33,18 +33,18 @@ Asema::Asema() {
 	//_lauta[4][7] = new Nappula(L"\u265B", 1, MD);
 	//_lauta[0][6] = new Nappula(L"\u265F", 1, MS);
 
-	_lauta[5][0] = _lauta[2][0];
-	_lauta[6][0] = _lauta[1][0];
-	_lauta[7][0] = _lauta[0][0];
+	//_lauta[5][0] = _lauta[2][0];
+	//_lauta[6][0] = _lauta[1][0];
+	//_lauta[7][0] = _lauta[0][0];
 
-	_lauta[5][7] = _lauta[2][7];
-	_lauta[6][7] = _lauta[1][7];
-	_lauta[7][7] = _lauta[0][7];
+	//_lauta[5][7] = _lauta[2][7];
+	//_lauta[6][7] = _lauta[1][7];
+	//_lauta[7][7] = _lauta[0][7];
 
-	for (int i = 0; i < 8; i++) {
-		_lauta[i][1] = _lauta[0][1];
-		_lauta[i][6] = _lauta[0][6];
-	}
+	//for (int i = 0; i < 8; i++) {
+	//	_lauta[i][1] = _lauta[0][1];
+	//	_lauta[i][6] = _lauta[0][6];
+	//}
 
 	_siirtovuoro = 0;
 	_onkoValkeaKuningasLiikkunut = false;
