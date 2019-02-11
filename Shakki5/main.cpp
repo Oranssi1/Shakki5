@@ -28,8 +28,8 @@ int main() {
 		for (int i = 0; i < 15; i++) {
 			Ruutu ruutu;
 			Siirto siirto;
-			ruutu = lista[i]->getLoppuRuutu;
-			std::wcout << ;
+			ruutu = lista.begin(i)->getLoppuRuutu;
+			std::wcout << "testi";
 		}
 
 	return 0;

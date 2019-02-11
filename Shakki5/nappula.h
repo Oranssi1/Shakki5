@@ -11,6 +11,7 @@
 #include <iostream>
 #include <list>
 #include "asema.h"
+#include <stdlib.h>
 
 enum {
 	VT, VR, VL, VD, VK, VS,
@@ -283,7 +284,7 @@ public:
 				if (new_y > 7 || new_x < 0) {
 					break;
 				}
-				if (mathf.abs(new_x) + mathf.abs(new_y) !== 3) {
+				if (abs(new_x) + abs(new_y) != 3) {
 					break;
 				}
 
@@ -331,53 +332,30 @@ public:
 			if (n1 == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, y)));
 			}
-			else if (n->getVari() != vari) {
+			else if (n1->getVari() != vari) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, y)));
 			}
 
 			if (n2 == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, y)));
 			}
-			else if (n->getVari() != vari) {
+			else if (n2->getVari() != vari) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, y)));
 			}
 
 			if (n3 == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y+1)));
 				}
-			else if (n->getVari() != vari) {
+			else if (n3->getVari() != vari) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y+1)));
 			}
 
 			if (n4 == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y-1)));
 			}
-			else if (n->getVari() != vari) {
+			else if (n4->getVari() != vari) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y-1)));
 			}
 		}
 	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
