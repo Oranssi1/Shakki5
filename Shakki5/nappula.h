@@ -363,3 +363,30 @@ public:
 		}
 	}
 };
+
+// for (int i = -1; i <= 1; i++) {
+// 	for (int j = -1; j <= 1; j++) {
+// 		int new_x = x + i;
+// 		int new_y = y + j;
+// 		if (new_y > 7 || new_x < 0) {
+// 			break;
+// 		}
+// 		if (abs(i) + abs(j) != 1) {
+// 			break;
+// 		}
+
+// 		Nappula* n = asema->_lauta[new_x][new_y];
+			
+// 		if (n == nullptr) {
+// 			lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+// 			continue;
+// 		}
+// 		if (n->getVari() != vari) {
+// 			lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+// 		}
+
+// 		break;
+
+// 	}
+// }
+
