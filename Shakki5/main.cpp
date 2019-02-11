@@ -23,6 +23,7 @@ int main() {
 		kayttoliittyma->piirraLauta();
 //		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3,3), asema, 0);
 		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3, 3), asema, 0);
+
 //		asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
 //	}
 
