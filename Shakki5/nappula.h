@@ -321,6 +321,32 @@ public:
 		int x = ruutu->getSarake();
 		int y = ruutu->getRivi();
 
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				int new_x = x + i;
+				int new_y = y + j;
+				if (new_y > 7 || new_x < 0 || new_x > 7 || new_y < 0) {
+					break;
+				}
+
+				if (abs(i) + abs(j) != 0) {
+
+					Nappula* n = asema->_lauta[new_x][new_y];
+
+					if (n == nullptr) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+						continue;
+					}
+					if (n->getVari() != vari) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+					}
+
+					break;
+
+				}
+				}
+		}
+/*
 		if (x + 1 <= 7 && x - 1 > 0 && y + 1 <= 7 && y - 1 > 0) {
 			Nappula* n1 = asema->_lauta[x+1][y];
 			Nappula* n2 = asema->_lauta[x-1][y];
@@ -354,33 +380,8 @@ public:
 			else if (n4->getVari() != vari) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y-1)));
 			}
-		}
+		} */
 	}
 };
 
-// for (int i = -1; i <= 1; i++) {
-// 	for (int j = -1; j <= 1; j++) {
-// 		int new_x = x + i;
-// 		int new_y = y + j;
-// 		if (new_y > 7 || new_x < 0) {
-// 			break;
-// 		}
-// 		if (abs(i) + abs(j) != 1) {
-// 			break;
-// 		}
-
-// 		Nappula* n = asema->_lauta[new_x][new_y];
-			
-// 		if (n == nullptr) {
-// 			lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
-// 			continue;
-// 		}
-// 		if (n->getVari() != vari) {
-// 			lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
-// 		}
-
-// 		break;
-
-// 	}
-// }
 
