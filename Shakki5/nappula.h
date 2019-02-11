@@ -245,6 +245,52 @@ public:
 	}
 };
 
+class Ratsu : virtual public Nappula {
+public: 
+	Ratsu(std::wstring unicode, int vari, int koodi) {
+		_vari = vari;
+		_koodi = koodi;
+		_unicode = unicode;
+	}
+
+	virtual void annaSiirrot(
+		std::list<Siirto>& lista,
+		Ruutu* ruutu,
+		Asema* asema,
+		int vari
+	)
+	{
+		int x = ruutu->getSarake();
+		int y = ruutu->getRivi();
+
+		for (int i = -2; i <= 2; i++) {
+			for (int j = -2; j <= 2; j++) {
+				int new_x = x + i;
+				int new_y = y + j;
+				if (new_y > 7 || new_x < 0) {
+					break;
+				}
+				if (mathf.abs(new_x) + mathf.abs(new_y) !== 3) {
+					break;
+				}
+
+				Nappula* n = asema->_lauta[new_x][new_y];
+					
+				if (n == nullptr) {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+					continue;
+				}
+				if (n->getVari() != vari) {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+				}
+
+				break;
+
+			}
+		}
+	}
+};
+
 
 
 
