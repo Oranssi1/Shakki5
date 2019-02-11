@@ -63,6 +63,7 @@ public:
 		int x = ruutu->getSarake();
 		int y = ruutu->getRivi();
 	
+		//oikea
 		for (int dx = 1; dx <= 7; dx++) {
 			int new_x = x + dx;
 			if (new_x > 7) {
@@ -73,18 +74,21 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
+				std::wcout << new_x << " " << y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
+				std::wcout << new_x << " " << y << std::endl;
 			}
 
 			break;
 		}
 
-		for (int dx = 7; dx >= 0; dx--) {
-			int new_x = dx - x;
+		//vasen
+		for (int dx = 1; dx <= 7; dx++) {
+			int new_x = x - dx;
 			if (new_x < 0) {
 				break;
 			}
@@ -93,15 +97,19 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
+				std::wcout << new_x << " " << y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
+				std::wcout << new_x << " " << y << std::endl;
 			}
 
 			break;
 		}
+
+		//ylös
 		for (int dy = 1; dy <= 7; dy++) {
 			int new_y = y + dy;
 			if (new_y > 7) {
@@ -112,18 +120,21 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
+				std::wcout << x << " " << new_y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
+				std::wcout << x << " " << new_y << std::endl;
 			}
 
 			break;
 		}
 
-		for (int dy = 7; dy >= 0; dy--) {
-			int new_y = dy - y;
+		//alas
+		for (int dy = 1; dy <= 7; dy++) {
+			int new_y = y - dy;
 			if (new_y < 0) {
 				break;
 			}
@@ -132,11 +143,13 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
+				std::wcout << x << " " << new_y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
+				std::wcout << x << " " << new_y << std::endl;
 			}
 
 			break;
