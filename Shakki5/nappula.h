@@ -361,11 +361,13 @@ public:
 		int dy = 1;
 		int new_y;
 
+		Nappula* n = asema->_lauta[x][y];
+
 		if (asema->_lauta[x][y]->getVari() == 1) {
 			dy = -dy;
 		}
-
-		Nappula* n = asema->_lauta[new_x][new_y];
+		new_y = y + dy;
+		n = asema->_lauta[x][new_y];
 
 		if (n == nullptr) {
 			lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
