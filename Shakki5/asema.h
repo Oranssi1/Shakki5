@@ -28,6 +28,7 @@ public:
 	bool getOnkoValkeaKTliikkunut();
 	bool getOnkoMustaDTliikkunut();
 	bool getOnkoMustaKTliikkunut();
+	void annaLaillisetSiirrot(std::list<Siirto>&);
 	
 private:
 	int _siirtovuoro;
