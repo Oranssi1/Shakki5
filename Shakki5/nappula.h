@@ -63,8 +63,8 @@ public:
 		int vari
 	)
 	{
-		int x = ruutu->getSarake();
-		int y = ruutu->getRivi();
+		int x = ruutu->getRivi();
+		int y = ruutu->getSarake();
 	
 		//oikea
 		for (int dx = 1; dx <= 7; dx++) {
@@ -170,8 +170,8 @@ public:
 		int vari
 	)
 	{
-		int x = ruutu->getSarake();
-		int y = ruutu->getRivi();
+		int x = ruutu->getRivi();
+		int y = ruutu->getSarake();
 
 		for (int i = 1; i <= 7; i++) {
 			int new_x = x + i;
@@ -270,8 +270,8 @@ public:
 		int vari
 	)
 	{
-		int x = ruutu->getSarake();
-		int y = ruutu->getRivi();
+		int x = ruutu->getRivi();
+		int y = ruutu->getSarake();
 
 		for (int i = -2; i <= 2; i++) {
 			for (int j = -2; j <= 2; j++) {
@@ -314,8 +314,8 @@ public:
 		int vari
 	)
 	{
-		int x = ruutu->getSarake();
-		int y = ruutu->getRivi();
+		int x = ruutu->getRivi();
+		int y = ruutu->getSarake();
 
 		for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
@@ -360,8 +360,8 @@ public:
 		int vari
 	)
 	{
-		int x = ruutu->getSarake();
-		int y = ruutu->getRivi();
+		int x = ruutu->getRivi();
+		int y = ruutu->getSarake();
 		int dy = 1;
 		int new_y;
 
