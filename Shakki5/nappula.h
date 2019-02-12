@@ -277,23 +277,19 @@ public:
 			for (int j = -2; j <= 2; j++) {
 				int new_x = x + i;
 				int new_y = y + j;
-				if (new_y > 7 || new_x < 0 || new_x > 7 || new_y < 0) {
-					break;
-				}
-				if (abs(i) + abs(j) == 3) {
-					Nappula* n = asema->_lauta[new_x][new_y];
+				if (new_y <= 7 || new_x >= 0 || new_x <= 7 || new_y >= 0) {
+					if (abs(i) + abs(j) == 3) {
+						Nappula* n = asema->_lauta[new_x][new_y];
 
-					if (n == nullptr) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
-						continue;
+						if (n == nullptr) {
+							lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+							continue;
+						}
+						if (n->getVari() != vari) {
+							lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+						}
 					}
-					if (n->getVari() != vari) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
-					}
-
-					break;
 				}
-
 			}
 		}
 	}
@@ -321,24 +317,19 @@ public:
 			for (int j = -1; j <= 1; j++) {
 				int new_x = x + i;
 				int new_y = y + j;
-				if (new_y > 7 || new_x < 0 || new_x > 7 || new_y < 0) {
-					break;
-				}
+				if (new_y <= 7 || new_x >= 0 || new_x <= 7 || new_y >= 0) {
+					if (abs(i) + abs(j) != 0) {
 
-				if (abs(i) + abs(j) != 0) {
+						Nappula* n = asema->_lauta[new_x][new_y];
 
-					Nappula* n = asema->_lauta[new_x][new_y];
-
-					if (n == nullptr) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
-						continue;
+						if (n == nullptr) {
+							lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+							continue;
+						}
+						if (n->getVari() != vari) {
+							lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
+						}
 					}
-					if (n->getVari() != vari) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, new_y)));
-					}
-
-					break;
-
 				}
 			}
 		}
