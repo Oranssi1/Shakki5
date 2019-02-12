@@ -349,6 +349,57 @@ public:
 	}
 };
 
+class Sotilas : public Nappula {
+public:
+	Sotilas(std::wstring unicode, int vari, int koodi) {
+		_vari = vari;
+		_koodi = koodi;
+		_unicode = unicode;
+	}
+
+	virtual void annaSiirrot(
+		std::list<Siirto>& lista,
+		Ruutu* ruutu,
+		Asema* asema,
+		int vari
+	)
+	{
+		int x = ruutu->getSarake();
+		int y = ruutu->getRivi();
+		int dy = 1;
+		int new_y;
+
+		if (asema->_lauta[x][y]->getVari() == 1) {
+			dy = -dy;
+		}
+
+		Nappula* n = asema->_lauta[new_x][new_y];
+
+		if (n == nullptr) {
+			lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
+			n = asema->_lauta[x-1][new_y];
+			if (n->getVari() != vari) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y)));
+			}
+			n = asema->_lauta[x+1][new_y];
+			if (n->getVari() != vari) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y)));
+			}
+			if (y == 1 && dy == 1 || y == 6 && dy == -1) {
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy)));
+				n = asema->_lauta[x-1][new_y + dy];
+				if (n->getVari() != vari) {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y + dy)));
+				}
+				n = asema->_lauta[x+1][new_y + dy];
+				if (n->getVari() != vari) {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y + dy)));
+				}
+			}
+		}
+	}
+};
+
 //class Daami : public Torni, public Lahetti {
 //	Daami(std::wstring unicode, int vari, int koodi) {
 //		_vari = vari;
