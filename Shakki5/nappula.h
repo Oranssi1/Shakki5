@@ -367,7 +367,7 @@ public:
 
 		Nappula* n = asema->_lauta[x][y];
 
-		if (asema->_lauta[x][y]->getVari() == 1) {
+		if (_vari == 1) {
 			dy = -dy;
 		}
 		new_y = y + dy;
@@ -390,7 +390,7 @@ public:
 		}
 
 		if (y == 1 && dy == 1 || y == 6 && dy == -1) {
-			n = asema->_lauta[x][new_y + dy]
+			n = asema->_lauta[x][new_y + dy];
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy)));
 				n = asema->_lauta[x-1][new_y + dy];

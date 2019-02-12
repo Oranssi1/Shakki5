@@ -17,12 +17,14 @@ Asema::Asema() {
 		}
 	}
 
-	_lauta[5][5] = new Torni(L"\u2656", 0, VT);
-	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
-	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
-	_lauta[2][2] = new Kuningas(L"\u2654", 0, VK);
-//	_lauta[1][1] = new Sotilas(L"\u2659", 0, VS);
-	_lauta[3][0] = new Daami(L"\u2655", 0, VD);
+//	_lauta[5][5] = new Torni(L"\u2656", 0, VT);
+//	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
+//	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
+//	_lauta[2][2] = new Kuningas(L"\u2654", 0, VK);
+	_lauta[3][1] = new Sotilas(L"\u2659", 0, VS);
+//	_lauta[1][6] = new Sotilas(L"\u265F", 1, MS);
+	//	_lauta[3][0] = new Daami(L"\u2655", 0, VD);
+
 	//_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
 	//_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
 	//_lauta[2][0] = new Nappula(L5"\u2657", 0, VL);
