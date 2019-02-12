@@ -173,15 +173,15 @@ bool Asema::getOnkoMustaKTliikkunut() {
 void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
-			Nappula* nappula = _lauta[i][j];
-			if (nappula == NULL) {
-				break;
+			Nappula* nappula = this->_lauta[i][j];
+			if (nappula != nullptr) {
+				if (_lauta[i][j]->getVari() == _siirtovuoro) {
+					_lauta[i][j]->annaSiirrot(lista, &Ruutu(i, j), this, _siirtovuoro);
+					std::wcout << "i= " << i << " j= "  << j << std::endl;
+				}
 			}
 
-			if (_lauta[i][j]->getVari() == _siirtovuoro) {
-				_lauta[i][j]->annaSiirrot(lista, &Ruutu(i,j), this, _siirtovuoro);
-				std::wcout << "ASD";
-			}
+
 		}
 	}
 }
