@@ -394,14 +394,23 @@ public:
 	}
 };
 
-//class Daami : public Torni, public Lahetti {
-//	Daami(std::wstring unicode, int vari, int koodi) {
-//		_vari = vari;
-//		_koodi = koodi;
-//		_unicode = unicode;
-//	}
-//
-//
-//};
+class Daami : public Torni, public Lahetti {
+	Daami(std::wstring unicode, int vari, int koodi) {
+		_vari = vari;
+		_koodi = koodi;
+		_unicode = unicode;
+	}
+
+	virtual void annaSiirrot(
+		std::list<Siirto>& lista,
+		Ruutu* ruutu,
+		Asema* asema,
+		int vari
+	) 
+	{
+		Torni::annaSiirrot(lista, ruutu, asema, vari);
+		Lahetti::annaSiirrot(lista, ruutu, asema, vari);
+	}
+};
 
 
