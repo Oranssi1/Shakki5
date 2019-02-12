@@ -54,6 +54,8 @@ public:
 		_unicode = unicode;
 	}
 
+	Torni() {}
+
 	virtual void annaSiirrot(
 		std::list<Siirto>& lista,
 		Ruutu* ruutu,
@@ -158,6 +160,8 @@ public:
 		_koodi = koodi;
 		_unicode = unicode;
 	}
+
+	Lahetti() {}
 
 	virtual void annaSiirrot(
 		std::list<Siirto>& lista,
@@ -372,22 +376,34 @@ public:
 		if (n == nullptr) {
 			lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
 			n = asema->_lauta[x-1][new_y];
-			if (n->getVari() != vari) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y)));
+			if (n != nullptr) {
+				if (n->getVari() != vari) {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y)));
+				}
 			}
 			n = asema->_lauta[x+1][new_y];
-			if (n->getVari() != vari) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y)));
+			if (n != nullptr) {
+				if (n->getVari() != vari) {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y)));
+				}
 			}
-			if (y == 1 && dy == 1 || y == 6 && dy == -1) {
+		}
+
+		if (y == 1 && dy == 1 || y == 6 && dy == -1) {
+			n = asema->_lauta[x][new_y + dy]
+			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy)));
 				n = asema->_lauta[x-1][new_y + dy];
-				if (n->getVari() != vari) {
-					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y + dy)));
+				if (n != nullptr) {
+					if (n->getVari() != vari) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y + dy)));
+					}
 				}
 				n = asema->_lauta[x+1][new_y + dy];
-				if (n->getVari() != vari) {
-					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y + dy)));
+				if (n != nullptr) {
+					if (n->getVari() != vari) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y + dy)));
+					}
 				}
 			}
 		}
