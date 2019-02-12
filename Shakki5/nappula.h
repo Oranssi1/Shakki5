@@ -344,44 +344,19 @@ public:
 					break;
 
 				}
-				}
+			}
 		}
-/*
-		if (x + 1 <= 7 && x - 1 > 0 && y + 1 <= 7 && y - 1 > 0) {
-			Nappula* n1 = asema->_lauta[x+1][y];
-			Nappula* n2 = asema->_lauta[x-1][y];
-			Nappula* n3 = asema->_lauta[x][y+1];
-			Nappula* n4 = asema->_lauta[x][y-1];
-
-			if (n1 == nullptr) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, y)));
-			}
-			else if (n1->getVari() != vari) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, y)));
-			}
-
-			if (n2 == nullptr) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, y)));
-			}
-			else if (n2->getVari() != vari) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, y)));
-			}
-
-			if (n3 == nullptr) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y+1)));
-				}
-			else if (n3->getVari() != vari) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y+1)));
-			}
-
-			if (n4 == nullptr) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y-1)));
-			}
-			else if (n4->getVari() != vari) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, y-1)));
-			}
-		} */
 	}
 };
+
+//class Daami : public Torni, public Lahetti {
+//	Daami(std::wstring unicode, int vari, int koodi) {
+//		_vari = vari;
+//		_koodi = koodi;
+//		_unicode = unicode;
+//	}
+//
+//
+//};
 
 

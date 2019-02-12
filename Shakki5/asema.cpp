@@ -169,15 +169,17 @@ bool Asema::getOnkoMustaKTliikkunut() {
 	return _onkoMustaKTliikkunut;
 }
 
-void annaLaillisetSiirrot(std::list<Siirto>& lista) {
+void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
-			if (_lauta[i][j] == NULL) {
+			Nappula* nappula = _lauta[i][j];
+			if (nappula == NULL) {
 				break;
 			}
 
-			if (_lauta[i][j].getVari() == _siirtovuoro) {
-				_lauta|i][j].annaSiirrot(lista, Ruutu(i,j), asema, _siirtovuoro);
+			if (_lauta[i][j]->getVari() == _siirtovuoro) {
+				_lauta[i][j]->annaSiirrot(lista, &Ruutu(i,j), this, _siirtovuoro);
+				std::wcout << "ASD";
 			}
 		}
 	}

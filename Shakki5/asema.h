@@ -9,6 +9,7 @@
 #pragma once
 //#include "nappula.h"
 #include "siirto.h"
+#include <list>
 
 class Nappula;
 
