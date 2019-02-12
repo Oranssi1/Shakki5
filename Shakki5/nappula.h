@@ -75,13 +75,11 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
-				std::wcout << new_x << " " << y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
-				std::wcout << new_x << " " << y << std::endl;
 			}
 
 			break;
@@ -98,13 +96,11 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
-				std::wcout << new_x << " " << y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(new_x, y)));
-				std::wcout << new_x << " " << y << std::endl;
 			}
 
 			break;
@@ -121,13 +117,11 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
-				std::wcout << x << " " << new_y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
-				std::wcout << x << " " << new_y << std::endl;
 			}
 
 			break;
@@ -144,13 +138,11 @@ public:
 
 			if (n == nullptr) {
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
-				std::wcout << x << " " << new_y << std::endl;
 				continue;
 			}
 			if (n->getVari() != vari)
 			{
 				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
-				std::wcout << x << " " << new_y << std::endl;
 			}
 
 			break;
