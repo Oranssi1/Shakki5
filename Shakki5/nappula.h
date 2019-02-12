@@ -395,6 +395,7 @@ public:
 };
 
 class Daami : public Torni, public Lahetti {
+public:
 	Daami(std::wstring unicode, int vari, int koodi) {
 		_vari = vari;
 		_koodi = koodi;
