@@ -21,8 +21,9 @@ int main() {
 	std::list<Siirto> lista;
 //	while (true) {
 		kayttoliittyma->piirraLauta();
+		asema->annaLaillisetSiirrot(lista);
 //		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3,3), asema, 0);
-		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3, 3), asema, 0);
+//		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3, 3), asema, 0);
 
 //		asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
 //	}
