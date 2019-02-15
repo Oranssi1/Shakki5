@@ -17,18 +17,18 @@ Asema::Asema() {
 		}
 	}
 
-//	_lauta[1][4] = new Torni(L"\u2656", 0, VT);
+//	_lauta[3][4] = new Torni(L"\u2656", 0, VT);
 //	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
 //	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
 	_lauta[3][3] = new Kuningas(L"\u2654", 0, VK);
-	_lauta[3][7] = new Kuningas(L"\u265A", 1, MK);
+//	_lauta[3][4] = new Kuningas(L"\u265A", 1, MK);
 //	_lauta[1][1] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[1][2] = new Sotilas(L"\u2659", 0, VS);
-//	_lauta[5][5] = new Sotilas(L"\u265F", 1, MS);
+	_lauta[2][3] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[3][3] = new Sotilas(L"\u265F", 1, MS);
-	_lauta[0][1] = new Sotilas(L"\u265F", 1, MS);
-	_lauta[1][1] = new Sotilas(L"\u265F", 1, MS);
-	_lauta[0][0] = new Daami(L"\u2655", 0, VD);
+//	_lauta[0][1] = new Sotilas(L"\u265F", 1, MS);
+//	_lauta[1][1] = new Sotilas(L"\u265F", 1, MS);
+//	_lauta[0][0] = new Daami(L"\u2655", 0, VD);
 
 	//_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
 	//_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
@@ -180,7 +180,7 @@ bool Asema::getOnkoMustaKTliikkunut() {
 
 bool Asema::onkoRuutuUhattu(Ruutu ruutu, std::list<Siirto>& siirrot) {
 	for (auto s : siirrot) {
-		if (s->getLoppuruutu == ruutu && s->getLyonti()) {
+		if (s.getLoppuruutu() == ruutu && s.getLyonti()) {
 			return true;
 		}
 	}

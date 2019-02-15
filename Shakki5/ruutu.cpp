@@ -13,10 +13,10 @@ Ruutu::Ruutu(int rivi, int sarake) {
 	_rivi = rivi;
 }
 
-int Ruutu::getRivi() {
+int Ruutu::getRivi() const {
 	return _rivi;
 }
 
-int Ruutu::getSarake() {
+int Ruutu::getSarake() const {
 	return _sarake;
 }

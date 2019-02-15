@@ -47,5 +47,5 @@ bool Siirto::onkoPitkaLinna() {
 }
 
 bool Siirto::getLyonti() {
-	return lyonti;
+	return _lyonti;
 }
