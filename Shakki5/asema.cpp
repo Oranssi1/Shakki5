@@ -20,7 +20,8 @@ Asema::Asema() {
 //	_lauta[1][4] = new Torni(L"\u2656", 0, VT);
 //	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
 //	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
-//	_lauta[3][3] = new Kuningas(L"\u2654", 0, VK);
+	_lauta[3][3] = new Kuningas(L"\u2654", 0, VK);
+	_lauta[3][7] = new Kuningas(L"\u265A", 1, MK);
 //	_lauta[1][1] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[1][2] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[5][5] = new Sotilas(L"\u265F", 1, MS);
@@ -177,11 +178,14 @@ bool Asema::getOnkoMustaKTliikkunut() {
 	return _onkoMustaKTliikkunut;
 }
 
-Ruutu etsiKuningas(int vari) {
+Ruutu Asema::etsiKuningas(int vari) {
 	for (int i = 0; i < 8; i++) {
-		for (int j = 0; < 8; j++) {
-			if ((_lauta[i][j]->getKoodi() == "VK" || _lauta[i][j]->getKoodi() == "MK") && _lauta[i][j]->getVari() == vari) {
-				return Ruutu(_lauta[i][j]->getRivi(), _lauta[i][j]->getSarake());
+		for (int j = 0;j < 8; j++) {
+			if (_lauta[i][j] != nullptr) {
+				if ((_lauta[i][j]->getKoodi() == VK || _lauta[i][j]->getKoodi() == MK) && _lauta[i][j]->getVari() == vari) {
+					std::wcout << i << " JA " << j << std::endl;
+					return Ruutu(i, j);
+				}
 			}
 		}
 	}
