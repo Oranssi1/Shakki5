@@ -177,6 +177,16 @@ bool Asema::getOnkoMustaKTliikkunut() {
 	return _onkoMustaKTliikkunut;
 }
 
+Ruutu etsiKuningas(int vari) {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; < 8; j++) {
+			if ((_lauta[i][j]->getKoodi() == "VK" || _lauta[i][j]->getKoodi() == "MK") && _lauta[i][j]->getVari() == vari) {
+				return Ruutu(_lauta[i][j]->getRivi(), _lauta[i][j]->getSarake());
+			}
+		}
+	}
+}
+
 void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {

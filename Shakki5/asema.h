@@ -30,6 +30,7 @@ public:
 	bool getOnkoMustaDTliikkunut();
 	bool getOnkoMustaKTliikkunut();
 	void annaLaillisetSiirrot(std::list<Siirto>&);
+	Ruutu etsiKuningas(int);
 	
 private:
 	int _siirtovuoro;
