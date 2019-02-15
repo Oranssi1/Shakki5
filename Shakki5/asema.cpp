@@ -178,6 +178,14 @@ bool Asema::getOnkoMustaKTliikkunut() {
 	return _onkoMustaKTliikkunut;
 }
 
+bool Asema::onkoRuutuUhattu(Ruutu ruutu, std::list<Siirto>& siirrot) {
+	for (auto s : siirrot) {
+		if (s->getLoppuruutu == ruutu && s->getLyonti()) {
+			return true;
+		}
+	}
+}
+
 Ruutu Asema::etsiKuningas(int vari) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0;j < 8; j++) {

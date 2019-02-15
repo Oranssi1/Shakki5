@@ -13,6 +13,15 @@ Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu) {
 	_loppuRuutu = loppuruutu;
 	_lyhytLinna = false;
 	_pitkaLinna = false;
+	_lyonti = true;
+}
+
+Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu, bool lyonti) {
+	_alkuRuutu = alkuruutu;
+	_loppuRuutu = loppuruutu;
+	_lyonti = lyonti;
+	_lyhytLinna = false;
+	_pitkaLinna = false;
 }
 
 // Poikkeussiirto linnoitusta varten
@@ -35,4 +44,8 @@ bool Siirto::onkoLyhytLinna() {
 
 bool Siirto::onkoPitkaLinna() {
 	return _pitkaLinna;
+}
+
+bool Siirto::getLyonti() {
+	return lyonti;
 }

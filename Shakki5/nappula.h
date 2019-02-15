@@ -367,7 +367,7 @@ public:
 			n = asema->_lauta[x][new_y];
 
 			if (n == nullptr) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y)));
+				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y), 0));
 				if (x-1 > -1) {
 					n = asema->_lauta[x-1][new_y];
 					if (n != nullptr) {
@@ -389,7 +389,7 @@ public:
 			if (y == 1 && dy == 1 || y == 6 && dy == -1 && new_y + dy < 8 && new_y + dy > -1) {
 				n = asema->_lauta[x][new_y + dy];
 				if (n == nullptr) {
-					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy)));
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy), 0));
 					// n = asema->_lauta[x-1][new_y + dy];
 					// if (n != nullptr) {
 					// 	if (n->getVari() != vari) {
