@@ -216,17 +216,18 @@ void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
 
 void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	generoiRaakaSiirrot(lista);
-	Ruutu ruutu = etsiKuningas();
+	Ruutu ruutu = etsiKuningas(this->getSiirtovuoro);
 	for (auto s : lista) {
 		Asema a;
 		Asema uusi;
-		uusi = a;
-
+//		uusi = a;
+		std::list<Siirto> lista2;
 		uusi = *this;
-		uusi->paivitaAsema(s);
-		uusi->generoiRaakaSiirrot(lista);
+		uusi.paivitaAsema(&s);
+		uusi.generoiRaakaSiirrot(lista);
 		if (onkoRuutuUhattu(ruutu, lista)) {
 			//poista s listasta??
+			
 			}
 		}
 	}
