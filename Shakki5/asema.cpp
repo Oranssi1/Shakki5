@@ -199,7 +199,7 @@ Ruutu Asema::etsiKuningas(int vari) {
 	}
 }
 
-void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
+void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			Nappula* nappula = this->_lauta[i][j];
@@ -209,10 +209,32 @@ void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 					std::wcout << "i= " << i << " j= "  << j << std::endl;
 				}
 			}
-
-
 		}
 	}
 }
+
+
+void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
+	generoiRaakaSiirrot(lista);
+	Ruutu ruutu = etsiKuningas();
+	for (auto s : lista) {
+		Asema a;
+		Asema uusi;
+		uusi = a;
+
+		uusi = *this;
+		uusi->paivitaAsema(s);
+		uusi->generoiRaakaSiirrot(lista);
+		if (onkoRuutuUhattu(ruutu, lista)) {
+			//poista s listasta??
+			}
+		}
+	}
+
+
+// // tehtävä 4
+// int Asema::kaksoisaskel_sarakkeella = -1;
+
+
 
 

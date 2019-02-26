@@ -29,6 +29,7 @@ public:
 	bool getOnkoValkeaKTliikkunut();
 	bool getOnkoMustaDTliikkunut();
 	bool getOnkoMustaKTliikkunut();
+	void generoiRaakaSiirrot(std::list<Siirto>&);
 	void annaLaillisetSiirrot(std::list<Siirto>&);
 	bool onkoRuutuUhattu(Ruutu ruutu, std::list<Siirto>& siirrot);
 	Ruutu etsiKuningas(int);
