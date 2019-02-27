@@ -202,6 +202,23 @@ Ruutu Asema::etsiKuningas(int vari) {
 }
 
 void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
+	if (this->getSiirtovuoro()) {
+		if (getOnkoMustaKuningasLiikkunut() && getOnkoMustaKTliikkunut() && !onkoRuutuUhattu(etsiKuningas(1)) && !onkoRuutuUhattu(Ruutu(2,7))) { //musta lyhytlinna
+			lista.push_back(Siirto(1,0));
+		}
+		if (getOnkoMustaKuningasLiikkunut() && getOnkoMustaDTliikkunut() && !onkoRuutuUhattu(etsiKuningas(1)) && !onkoRuutuUhattu(Ruutu(4,7))) { //musta pitkälinna
+			lista.push_back(Siirto(0,1));
+		}
+	}
+
+	else {
+		if (getOnkoValkeaKuningasLiikkunut() && getOnkoValkeaKTliikkunut() && !onkoRuutuUhattu(etsiKuningas(0)) && !onkoRuutuUhattu(Ruutu(5,0))) { //valkea lyhytlinna
+			lista.push_back(Siirto(1,0));
+		}
+		if (getOnkoValkeaKuningasLiikkunut() && getOnkoValkeaDTliikkunut() && !onkoRuutuUhattu(etsiKuningas(0)) && !onkoRuutuUhattu(Ruutu(3,0))) { //valkea pitkälinna
+			lista.push_back(Siirto(0,1));
+		}
+	}
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			Nappula* nappula = this->_lauta[i][j];
