@@ -202,23 +202,7 @@ Ruutu Asema::etsiKuningas(int vari) {
 }
 
 void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
-	if (this->getSiirtovuoro()) {
-		if (getOnkoMustaKuningasLiikkunut() && getOnkoMustaKTliikkunut() && !onkoRuutuUhattu(etsiKuningas(1)) && !onkoRuutuUhattu(Ruutu(2,7))) { //musta lyhytlinna
-			lista.push_back(Siirto(1,0));
-		}
-		if (getOnkoMustaKuningasLiikkunut() && getOnkoMustaDTliikkunut() && !onkoRuutuUhattu(etsiKuningas(1)) && !onkoRuutuUhattu(Ruutu(4,7))) { //musta pitkälinna
-			lista.push_back(Siirto(0,1));
-		}
-	}
 
-	else {
-		if (getOnkoValkeaKuningasLiikkunut() && getOnkoValkeaKTliikkunut() && !onkoRuutuUhattu(etsiKuningas(0)) && !onkoRuutuUhattu(Ruutu(5,0))) { //valkea lyhytlinna
-			lista.push_back(Siirto(1,0));
-		}
-		if (getOnkoValkeaKuningasLiikkunut() && getOnkoValkeaDTliikkunut() && !onkoRuutuUhattu(etsiKuningas(0)) && !onkoRuutuUhattu(Ruutu(3,0))) { //valkea pitkälinna
-			lista.push_back(Siirto(0,1));
-		}
-	}
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			Nappula* nappula = this->_lauta[i][j];
@@ -243,6 +227,23 @@ void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 		std::list<Siirto> lista2;
 		uusi = *this;
 		uusi.paivitaAsema(&s);
+		if (this->getSiirtovuoro() == 1) {
+			if (!getOnkoMustaKuningasLiikkunut() && !getOnkoMustaKTliikkunut() && !onkoRuutuUhattu(etsiKuningas(1), lista) && !onkoRuutuUhattu(Ruutu(2, 7), lista)) { //musta lyhytlinna
+				lista.push_back(Siirto(1, 0));
+			}
+			if (!getOnkoMustaKuningasLiikkunut() && !getOnkoMustaDTliikkunut() && !onkoRuutuUhattu(etsiKuningas(1), lista) && !onkoRuutuUhattu(Ruutu(4, 7), lista)) { //musta pitkälinna
+				lista.push_back(Siirto(0, 1));
+			}
+		}
+
+		else if (this->getSiirtovuoro() == 0) {
+			if (!getOnkoValkeaKuningasLiikkunut() && !getOnkoValkeaKTliikkunut() && !onkoRuutuUhattu(etsiKuningas(0), lista) && !onkoRuutuUhattu(Ruutu(5, 0), lista)) { //valkea lyhytlinna
+				lista.push_back(Siirto(1, 0));
+			}
+			if (!getOnkoValkeaKuningasLiikkunut() && !getOnkoValkeaDTliikkunut() && !onkoRuutuUhattu(etsiKuningas(0), lista) && !onkoRuutuUhattu(Ruutu(3, 0), lista)) { //valkea pitkälinna
+				lista.push_back(Siirto(0, 1));
+			}
+		}
 		uusi.generoiRaakaSiirrot(lista2);
 		if (!onkoRuutuUhattu(ruutu, lista2)) {
 			lopulliset.push_back(s);
