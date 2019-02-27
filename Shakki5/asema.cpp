@@ -20,42 +20,43 @@ Asema::Asema() {
 //	_lauta[3][4] = new Torni(L"\u2656", 0, VT);
 //	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
 //	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
-	_lauta[3][3] = new Kuningas(L"\u2654", 0, VK);
+//	_lauta[3][3] = new Kuningas(L"\u2654", 0, VK);
 //	_lauta[3][4] = new Kuningas(L"\u265A", 1, MK);
 //	_lauta[1][1] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[1][2] = new Sotilas(L"\u2659", 0, VS);
-	_lauta[2][3] = new Sotilas(L"\u265F", 1, MS);
+//	_lauta[2][3] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[3][3] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[0][1] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[1][1] = new Sotilas(L"\u265F", 1, MS);
-//	_lauta[0][0] = new Daami(L"\u2655", 0, VD);
+//	_lauta[4][3] = new Daami(L"\u2655", 0, VD);
+//	_lauta[6][3] = new Torni(L"\u265C", 1, MT);
 
-	//_lauta[0][0] = new Nappula(L"\u2656", 0, VT);
-	//_lauta[1][0] = new Nappula(L"\u2658", 0, VR);
-	//_lauta[2][0] = new Nappula(L5"\u2657", 0, VL);
-	//_lauta[3][0] = new Nappula(L"\u2655", 0, VD);
-	//_lauta[4][0] = new Nappula(L"\u2654", 0, VK);
-	//_lauta[0][1] = new Nappula(L"\u2659", 0, VS);
+	_lauta[0][0] = new Torni(L"\u2656", 0, VT);
+	_lauta[1][0] = new Ratsu(L"\u2658", 0, VR);
+	_lauta[2][0] = new Lahetti(L"\u2657", 0, VL);
+	_lauta[3][0] = new Daami(L"\u2655", 0, VD);
+	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
+	_lauta[0][1] = new Sotilas(L"\u2659", 0, VS);
 
-	//_lauta[0][7] = new Nappula(L"\u265C", 1, MT);
-	//_lauta[1][7] = new Nappula(L"\u265E", 1, MR);
-	//_lauta[2][7] = new Nappula(L"\u265D", 1, ML);
-	//_lauta[3][7] = new Nappula(L"\u265A", 1, MK);
-	//_lauta[4][7] = new Nappula(L"\u265B", 1, MD);
-	//_lauta[0][6] = new Nappula(L"\u265F", 1, MS);
+	_lauta[0][7] = new Torni(L"\u265C", 1, MT);
+	_lauta[1][7] = new Ratsu(L"\u265E", 1, MR);
+	_lauta[2][7] = new Lahetti(L"\u265D", 1, ML);
+	_lauta[4][7] = new Kuningas(L"\u265A", 1, MK);
+	_lauta[3][7] = new Daami(L"\u265B", 1, MD);
+	_lauta[0][6] = new Sotilas(L"\u265F", 1, MS);
 
-	//_lauta[5][0] = _lauta[2][0];
-	//_lauta[6][0] = _lauta[1][0];
-	//_lauta[7][0] = _lauta[0][0];
+	_lauta[5][0] = _lauta[2][0];
+	_lauta[6][0] = _lauta[1][0];
+	_lauta[7][0] = _lauta[0][0];
 
-	//_lauta[5][7] = _lauta[2][7];
-	//_lauta[6][7] = _lauta[1][7];
-	//_lauta[7][7] = _lauta[0][7];
+	_lauta[5][7] = _lauta[2][7];
+	_lauta[6][7] = _lauta[1][7];
+	_lauta[7][7] = _lauta[0][7];
 
-	//for (int i = 0; i < 8; i++) {
-	//	_lauta[i][1] = _lauta[0][1];
-	//	_lauta[i][6] = _lauta[0][6];
-	//}
+	for (int i = 0; i < 8; i++) {
+		_lauta[i][1] = _lauta[0][1];
+		_lauta[i][6] = _lauta[0][6];
+	}
 
 	_siirtovuoro = 0;
 	_onkoValkeaKuningasLiikkunut = false;
@@ -104,7 +105,8 @@ Asema::Asema() {
 			Ruutu alkuruutu = siirto->getAlkuruutu();
 			int alkuX = alkuruutu.getSarake();
 			int alkuY = alkuruutu.getRivi();
-			Nappula* sijainti = _lauta[alkuX][alkuY];
+//			Nappula* sijainti = _lauta[alkuX][alkuY];
+			Nappula* sijainti = _lauta[alkuY][alkuX];
 			int nappula = sijainti->getKoodi();
 			Ruutu loppuruutu = siirto->getLoppuruutu();
 			int loppuX = loppuruutu.getSarake();
@@ -134,8 +136,8 @@ Asema::Asema() {
 				_onkoMustaKTliikkunut = true;
 				break;
 			}
-			_lauta[loppuX][loppuY] = _lauta[alkuX][alkuY];
-			_lauta[alkuX][alkuY] = NULL;
+			_lauta[loppuY][loppuX] = _lauta[alkuY][alkuX];
+			_lauta[alkuY][alkuX] = NULL;
 
 			if (_siirtovuoro == 1) {
 				_siirtovuoro = 0;
@@ -191,7 +193,7 @@ Ruutu Asema::etsiKuningas(int vari) {
 		for (int j = 0;j < 8; j++) {
 			if (_lauta[i][j] != nullptr) {
 				if ((_lauta[i][j]->getKoodi() == VK || _lauta[i][j]->getKoodi() == MK) && _lauta[i][j]->getVari() == vari) {
-					std::wcout << i << " JA " << j << std::endl;
+//					std::wcout << i << " JA " << j << std::endl;
 					return Ruutu(i, j);
 				}
 			}
@@ -206,7 +208,7 @@ void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
 			if (nappula != nullptr) {
 				if (_lauta[i][j]->getVari() == _siirtovuoro) {
 					_lauta[i][j]->annaSiirrot(lista, &Ruutu(i, j), this, _siirtovuoro);
-					std::wcout << "i= " << i << " j= "  << j << std::endl;
+//					std::wcout << "i= " << i << " j= "  << j << std::endl;
 				}
 			}
 		}
@@ -215,18 +217,21 @@ void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
 
 
 void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
+	std::list<Siirto> lopulliset;
+
 	generoiRaakaSiirrot(lista);
-	Ruutu ruutu = etsiKuningas(this->getSiirtovuoro);
+	Ruutu ruutu = etsiKuningas(this->getSiirtovuoro());
 	for (auto s : lista) {
 		Asema uusi;
 		std::list<Siirto> lista2;
 		uusi = *this;
 		uusi.paivitaAsema(&s);
 		uusi.generoiRaakaSiirrot(lista2);
-		if (onkoRuutuUhattu(ruutu, lista2)) {
-			lista.erase(s);
+		if (!onkoRuutuUhattu(ruutu, lista2)) {
+			lopulliset.push_back(s);
 		}
 	}
+	lista = lopulliset;
 }
 
 

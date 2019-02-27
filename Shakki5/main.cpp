@@ -16,29 +16,31 @@
 int main() {
 
 	Asema* asema = new Asema();
-	asema->setSiirtovuoro(1);
+	asema->setSiirtovuoro(0);
 	Kayttoliittyma* kayttoliittyma = new Kayttoliittyma(asema);
 	std::list<Siirto> lista;
-//	while (true) {
+	while (true) {
 		kayttoliittyma->piirraLauta();
+		lista.clear();
 		asema->annaLaillisetSiirrot(lista);
 		asema->etsiKuningas(0);
 		asema->etsiKuningas(1);
-		std::wcout << "Halleluujaa: " << asema->onkoRuutuUhattu(Ruutu(3, 3), lista) << " halleluujaa" << std::endl;
+//		std::wcout << "Halleluujaa: " << asema->onkoRuutuUhattu(Ruutu(3, 3), lista) << " halleluujaa" << std::endl;
 		asema->onkoRuutuUhattu(Ruutu(3,3), lista);
 		//		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3,3), asema, 0);
 //		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3, 3), asema, 0);
 
-//		asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
-//	}
+		std::wcout << lista.size() << " laillista siirtoa\n";
+		asema->paivitaAsema(kayttoliittyma->annaVastustajanSiirto());
+	}
 
-		for (auto s : lista)
-		{
-			Ruutu ruutu;
-			ruutu = s.getLoppuruutu();
-			std::wcout << ruutu.getRivi() << "/" << ruutu.getSarake() << std::endl;
+		//for (auto s : lista)
+		//{
+		//	Ruutu ruutu;
+		//	ruutu = s.getLoppuruutu();
+		//	std::wcout << ruutu.getRivi() << "/" << ruutu.getSarake() << std::endl;
 
-		}
+		//}
 
 	return 0;
 }

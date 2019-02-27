@@ -117,8 +117,8 @@ Siirto* Kayttoliittyma::annaVastustajanSiirto() {
 
 	} while (virhe);
 
-	Ruutu alkuruutu = Ruutu((int)syote[1] - 1, (int)syote[0]);
-	Ruutu loppuruutu = Ruutu((int)syote[4] - 1, (int)syote[3]);
+	Ruutu alkuruutu = Ruutu((int)syote[0], (int)syote[1] - 1);
+	Ruutu loppuruutu = Ruutu((int)syote[3], (int)syote[4] - 1);
 	Siirto* siirto = new Siirto(alkuruutu, loppuruutu);
 	return siirto;
 }
