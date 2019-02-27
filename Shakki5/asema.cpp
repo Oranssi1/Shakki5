@@ -17,10 +17,10 @@ Asema::Asema() {
 		}
 	}
 
-//	_lauta[3][4] = new Torni(L"\u2656", 0, VT);
+	_lauta[7][0] = new Torni(L"\u2656", 0, VT);
 //	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
 //	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
-//	_lauta[3][3] = new Kuningas(L"\u2654", 0, VK);
+	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
 //	_lauta[3][4] = new Kuningas(L"\u265A", 1, MK);
 //	_lauta[1][1] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[1][2] = new Sotilas(L"\u2659", 0, VS);
@@ -31,32 +31,32 @@ Asema::Asema() {
 //	_lauta[4][3] = new Daami(L"\u2655", 0, VD);
 //	_lauta[6][3] = new Torni(L"\u265C", 1, MT);
 
-	_lauta[0][0] = new Torni(L"\u2656", 0, VT);
-	_lauta[1][0] = new Ratsu(L"\u2658", 0, VR);
-	_lauta[2][0] = new Lahetti(L"\u2657", 0, VL);
-	_lauta[3][0] = new Daami(L"\u2655", 0, VD);
-	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
-	_lauta[0][1] = new Sotilas(L"\u2659", 0, VS);
+	//_lauta[0][0] = new Torni(L"\u2656", 0, VT);
+	//_lauta[1][0] = new Ratsu(L"\u2658", 0, VR);
+	//_lauta[2][0] = new Lahetti(L"\u2657", 0, VL);
+	//_lauta[3][0] = new Daami(L"\u2655", 0, VD);
+	//_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
+	//_lauta[0][1] = new Sotilas(L"\u2659", 0, VS);
 
-	_lauta[0][7] = new Torni(L"\u265C", 1, MT);
-	_lauta[1][7] = new Ratsu(L"\u265E", 1, MR);
-	_lauta[2][7] = new Lahetti(L"\u265D", 1, ML);
-	_lauta[4][7] = new Kuningas(L"\u265A", 1, MK);
-	_lauta[3][7] = new Daami(L"\u265B", 1, MD);
-	_lauta[0][6] = new Sotilas(L"\u265F", 1, MS);
+	//_lauta[0][7] = new Torni(L"\u265C", 1, MT);
+	//_lauta[1][7] = new Ratsu(L"\u265E", 1, MR);
+	//_lauta[2][7] = new Lahetti(L"\u265D", 1, ML);
+	//_lauta[4][7] = new Kuningas(L"\u265A", 1, MK);
+	//_lauta[3][7] = new Daami(L"\u265B", 1, MD);
+	//_lauta[0][6] = new Sotilas(L"\u265F", 1, MS);
 
-	_lauta[5][0] = _lauta[2][0];
-	_lauta[6][0] = _lauta[1][0];
-	_lauta[7][0] = _lauta[0][0];
+	//_lauta[5][0] = _lauta[2][0];
+	//_lauta[6][0] = _lauta[1][0];
+	//_lauta[7][0] = _lauta[0][0];
 
-	_lauta[5][7] = _lauta[2][7];
-	_lauta[6][7] = _lauta[1][7];
-	_lauta[7][7] = _lauta[0][7];
+	//_lauta[5][7] = _lauta[2][7];
+	//_lauta[6][7] = _lauta[1][7];
+	//_lauta[7][7] = _lauta[0][7];
 
-	for (int i = 0; i < 8; i++) {
-		_lauta[i][1] = _lauta[0][1];
-		_lauta[i][6] = _lauta[0][6];
-	}
+	//for (int i = 0; i < 8; i++) {
+	//	_lauta[i][1] = _lauta[0][1];
+	//	_lauta[i][6] = _lauta[0][6];
+	//}
 
 	_siirtovuoro = 0;
 	_onkoValkeaKuningasLiikkunut = false;
