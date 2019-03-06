@@ -390,18 +390,6 @@ public:
 				n = asema->_lauta[x][new_y + dy];
 				if (n == nullptr) {
 					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy), 0));
-					// n = asema->_lauta[x-1][new_y + dy];
-					// if (n != nullptr) {
-					// 	if (n->getVari() != vari) {
-					// 		lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y + dy)));
-					// 	}
-					// }
-					// n = asema->_lauta[x+1][new_y + dy];
-					// if (n != nullptr) {
-					// 	if (n->getVari() != vari) {
-					// 		lista.push_back(Siirto(Ruutu(x, y), Ruutu(x+1, new_y + dy)));
-					// 	}
-					// }
 				}
 			}
 		}
