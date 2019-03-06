@@ -105,7 +105,6 @@ Asema::Asema() {
 			Ruutu alkuruutu = siirto->getAlkuruutu();
 			int alkuX = alkuruutu.getSarake();
 			int alkuY = alkuruutu.getRivi();
-//			Nappula* sijainti = _lauta[alkuX][alkuY];
 			Nappula* sijainti = _lauta[alkuY][alkuX];
 			int nappula = sijainti->getKoodi();
 			Ruutu loppuruutu = siirto->getLoppuruutu();
@@ -193,7 +192,6 @@ Ruutu Asema::etsiKuningas(int vari) {
 		for (int j = 0;j < 8; j++) {
 			if (_lauta[i][j] != nullptr) {
 				if ((_lauta[i][j]->getKoodi() == VK || _lauta[i][j]->getKoodi() == MK) && _lauta[i][j]->getVari() == vari) {
-//					std::wcout << i << " JA " << j << std::endl;
 					return Ruutu(i, j);
 				}
 			}
@@ -209,13 +207,11 @@ void Asema::generoiRaakaSiirrot(std::list<Siirto>& lista) {
 			if (nappula != nullptr) {
 				if (_lauta[i][j]->getVari() == _siirtovuoro) {
 					_lauta[i][j]->annaSiirrot(lista, &Ruutu(i, j), this, _siirtovuoro);
-//					std::wcout << "i= " << i << " j= "  << j << std::endl;
 				}
 			}
 		}
 	}
 }
-
 
 void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	std::list<Siirto> lopulliset;
@@ -252,9 +248,6 @@ void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	lista = lopulliset;
 }
 
-
-// // tehtävä 4
-// int Asema::kaksoisaskel_sarakkeella = -1;
 
 
 
