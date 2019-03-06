@@ -310,6 +310,43 @@ public:
 		int vari
 	)
 	{
+		std::list<Siirto> vihollislista;
+
+		int vuorojuttu = 1;
+		if (asema->getSiirtovuoro() == 1) {
+			vuorojuttu = 0;
+		}
+		
+
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				Nappula* nappula = asema->_lauta[i][j];
+				if (nappula != nullptr) {
+					if (asema->_lauta[i][j]->getVari() == vuorojuttu) {
+						asema->_lauta[i][j]->annaSiirrot(lista, &Ruutu(i, j), asema, vuorojuttu);
+					}
+				}
+			}
+		}
+
+		if (asema->getSiirtovuoro() == 1) {
+			if (!asema->getOnkoMustaKuningasLiikkunut() && !asema->getOnkoMustaKTliikkunut() && !asema->onkoRuutuUhattu(asema->etsiKuningas(1), vihollislista) && !asema->onkoRuutuUhattu(Ruutu(2, 7), vihollislista)) { //musta lyhytlinna
+				lista.push_back(Siirto(1, 0));
+			}
+			if (!asema->getOnkoMustaKuningasLiikkunut() && !asema->getOnkoMustaDTliikkunut() && !asema->onkoRuutuUhattu(asema->etsiKuningas(1), vihollislista) && !asema->onkoRuutuUhattu(Ruutu(4, 7), vihollislista)) { //musta pitkälinna
+				lista.push_back(Siirto(0, 1));
+			}
+		}
+
+		else if (asema->getSiirtovuoro() == 0) {
+			if (!asema->getOnkoValkeaKuningasLiikkunut() && !asema->getOnkoValkeaKTliikkunut() && !asema->onkoRuutuUhattu(asema->etsiKuningas(0), vihollislista) && !asema->onkoRuutuUhattu(Ruutu(5, 0), vihollislista)) { //valkea lyhytlinna
+				lista.push_back(Siirto(1, 0));
+			}
+			if (!asema->getOnkoValkeaKuningasLiikkunut() && !asema->getOnkoValkeaDTliikkunut() && !asema->onkoRuutuUhattu(asema->etsiKuningas(0), vihollislista) && !asema->onkoRuutuUhattu(Ruutu(3, 0), vihollislista)) { //valkea pitkälinna
+				lista.push_back(Siirto(0, 1));
+			}
+		}
+
 		int x = ruutu->getRivi();
 		int y = ruutu->getSarake();
 
