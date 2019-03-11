@@ -374,23 +374,11 @@ public:
 };
 
 class Sotilas : public Nappula {
-private:
-	bool _kaksoisloikka;
 public:
 	Sotilas(std::wstring unicode, int vari, int koodi) {
 		_vari = vari;
 		_koodi = koodi;
 		_unicode = unicode;
-		_kaksoisloikka = false;
-	}
-
-	//kaksoisloikka sivustalyönnin tarkistusta varten
-	bool getKaksoisLoikka() {
-		return _kaksoisloikka;
-	}
-
-	void setKaksoisLoikka(bool kaksoisloikka) {
-		this->_kaksoisloikka = kaksoisloikka;
 	}
 
 	virtual void annaSiirrot(
@@ -404,7 +392,6 @@ public:
 		int y = ruutu->getSarake();
 		int dy = 1;
 		int new_y;
-		_kaksoisloikka = false;
 
 		Nappula* n = asema->_lauta[x][y];
 
@@ -439,8 +426,7 @@ public:
 			if (y == 1 && dy == 1 || y == 6 && dy == -1 && new_y + dy < 8 && new_y + dy > -1) {
 				n = asema->_lauta[x][new_y + dy];
 				if (n == nullptr) {
-					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy), 0));
-					_kaksoisloikka = true;
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy), 1, 0));
 				}
 			}
 			if (this->getVari() == 0 && y == 4) {

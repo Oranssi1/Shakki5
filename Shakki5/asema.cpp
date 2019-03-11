@@ -65,10 +65,14 @@ Asema::Asema() {
 	_onkoValkeaKTliikkunut = false;
 	_onkoMustaDTliikkunut = false;
 	_onkoMustaKTliikkunut = false;
+	_kaksoisaskelSarakkeella = -1;
 }
 
 	void Asema::paivitaAsema(Siirto* siirto) {
 		
+		if (_kaksoisaskelSarakkeella != -1) {
+			_kaksoisaskelSarakkeella = -1;
+		}
 		if (siirto->onkoLyhytLinna()) {
 			if (_siirtovuoro == 0) {
 				_lauta[6][0] = _lauta[4][0];
@@ -110,6 +114,9 @@ Asema::Asema() {
 			Ruutu loppuruutu = siirto->getLoppuruutu();
 			int loppuX = loppuruutu.getSarake();
 			int loppuY = loppuruutu.getRivi();
+			if (siirto->getKaksoisaskel()) {
+				_kaksoisaskelSarakkeella = alkuX;
+			}
 
 			switch (nappula) {
 			case VK:
@@ -177,6 +184,14 @@ bool Asema::getOnkoMustaDTliikkunut() {
 
 bool Asema::getOnkoMustaKTliikkunut() {
 	return _onkoMustaKTliikkunut;
+}
+
+void Asema::setKaksoisaskelSarakkeella(int kaksoisaskel) {
+	_kaksoisaskelSarakkeella = kaksoisaskel;
+}
+
+int Asema::getKaksoisaskelSarakkeella() {
+	return _kaksoisaskelSarakkeella;
 }
 
 bool Asema::onkoRuutuUhattu(Ruutu ruutu, std::list<Siirto>& siirrot) {

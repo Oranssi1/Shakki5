@@ -64,3 +64,7 @@ bool Siirto::onkoPitkaLinna() {
 bool Siirto::getLyonti() {
 	return _lyonti;
 }
+
+bool Siirto::getKaksoisaskel() {
+	return _kaksoisaskel;
+}

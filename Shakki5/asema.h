@@ -29,6 +29,8 @@ public:
 	bool getOnkoValkeaKTliikkunut();
 	bool getOnkoMustaDTliikkunut();
 	bool getOnkoMustaKTliikkunut();
+	void setKaksoisaskelSarakkeella(int kaksoisaskel);
+	int getKaksoisaskelSarakkeella();
 	void generoiRaakaSiirrot(std::list<Siirto>&);
 	void annaLaillisetSiirrot(std::list<Siirto>&);
 	bool onkoRuutuUhattu(Ruutu ruutu, std::list<Siirto>& siirrot);
@@ -43,6 +45,7 @@ private:
 	bool _onkoValkeaKTliikkunut;
 	bool _onkoMustaDTliikkunut;
 	bool _onkoMustaKTliikkunut;
+	int _kaksoisaskelSarakkeella;
 };
 
 
