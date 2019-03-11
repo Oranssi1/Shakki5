@@ -12,7 +12,7 @@ class Siirto {
 public:
 	Siirto(Ruutu, Ruutu);
 	Siirto(Ruutu, Ruutu, bool);
-	Siirto(Ruutu, Ruutu, bool, bool);
+//	Siirto(Ruutu, Ruutu, bool, bool);
 
 	Siirto() {}
 	Siirto(bool, bool); // Poikkeussiirto linnoitusta varten
@@ -21,8 +21,8 @@ public:
 	bool getLyonti();
 	bool onkoLyhytLinna();
 	bool onkoPitkaLinna();
-	bool getKaksoisaskel();
-	bool getOhestalyonti();
+	//bool getKaksoisaskel();
+	//bool getOhestalyonti();
 
 private:
 	Ruutu _alkuRuutu;
@@ -31,6 +31,6 @@ private:
 	int _miksiKorotetaan = 0;
 	bool _lyhytLinna;
 	bool _pitkaLinna;
-	bool _kaksoisaskel;
-	bool _ohestalyonti;
+	//bool _kaksoisaskel;
+	//bool _ohestalyonti;
 };

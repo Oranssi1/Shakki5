@@ -25,6 +25,7 @@ Asema::Asema() {
 	_lauta[1][3] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[5][5] = new Sotilas(L"\u2659", 0, VS);
 	_lauta[2][6] = new Sotilas(L"\u265F", 1, MS);
+	_lauta[3][6] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[3][3] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[0][1] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[1][1] = new Sotilas(L"\u265F", 1, MS);
