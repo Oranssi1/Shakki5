@@ -23,10 +23,10 @@ int main() {
 		kayttoliittyma->piirraLauta();
 		lista.clear();
 		asema->annaLaillisetSiirrot(lista);
-		asema->etsiKuningas(0);
-		asema->etsiKuningas(1);
+//		asema->etsiKuningas(0);
+//		asema->etsiKuningas(1);
 //		std::wcout << "Halleluujaa: " << asema->onkoRuutuUhattu(Ruutu(3, 3), lista) << " halleluujaa" << std::endl;
-		asema->onkoRuutuUhattu(Ruutu(3,3), lista);
+//		asema->onkoRuutuUhattu(Ruutu(3,3), lista);
 		//		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3,3), asema, 0);
 //		asema->_lauta[3][3]->annaSiirrot(lista, &Ruutu(3, 3), asema, 0);
 

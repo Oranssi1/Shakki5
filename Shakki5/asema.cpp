@@ -114,20 +114,28 @@ Asema::Asema() {
 			Ruutu loppuruutu = siirto->getLoppuruutu();
 			int loppuX = loppuruutu.getSarake();
 			int loppuY = loppuruutu.getRivi();
-			if (siirto->getKaksoisaskel()) {
-				_kaksoisaskelSarakkeella = alkuX;
-				std::cout << "kaksois\n";
+			//if (siirto->getKaksoisaskel()) {
+			//	_kaksoisaskelSarakkeella = alkuY;
+			//	std::wcout << "kaksois\n";
+			//}
+
+
+			//if (siirto->getOhestalyonti()) {
+			//	if (_siirtovuoro == 0) {
+			//		_lauta[loppuX][alkuY] = nullptr;
+			//		std::wcout << "ohesta\n";
+			//	}
+			//	else {
+			//		_lauta[loppuX][alkuY] = nullptr;
+			//	}
+			//}
+
+			if ((sijainti->getKoodi() == VS || sijainti->getKoodi() == MS) && abs(alkuX - loppuX) == 2) {
+				_kaksoisaskelSarakkeella = alkuY;
 			}
 
-
-			if (siirto->getOhestalyonti()) {
-				if (_siirtovuoro == 0) {
-					_lauta[loppuX][alkuY] = nullptr;
-					std::cout << "ohesta\n";
-				}
-				else {
-					_lauta[loppuX][alkuY] = nullptr;
-				}
+			if ((sijainti->getKoodi() == VS || sijainti->getKoodi() == MS) && (alkuY != loppuY) && (_lauta[loppuY][loppuX] == NULL)) {
+				_lauta[loppuY][alkuX] = NULL;
 			}
 
 			switch (nappula) {
@@ -164,7 +172,7 @@ Asema::Asema() {
 				_siirtovuoro = 1;
 			}
 		}
-		std::cout << "kaksoisaskelSarakkeella: " << _kaksoisaskelSarakkeella << std::endl;
+		std::wcout << "kaksoisaskelSarakkeella: " << _kaksoisaskelSarakkeella << std::endl;
 	}
 
 int Asema::getSiirtovuoro() {

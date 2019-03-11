@@ -14,6 +14,8 @@ Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu) {
 	_lyhytLinna = false;
 	_pitkaLinna = false;
 	_lyonti = true;
+	_kaksoisaskel = false;
+	_ohestalyonti = false;
 }
 
 Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu, bool lyonti) {
@@ -22,6 +24,8 @@ Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu, bool lyonti) {
 	_lyonti = lyonti;
 	_lyhytLinna = false;
 	_pitkaLinna = false;
+	_kaksoisaskel = false;
+	_ohestalyonti = false;
 }
 
 Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu, bool kaksoisaskel, bool ohestalyonti) {
