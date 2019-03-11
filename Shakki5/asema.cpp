@@ -17,14 +17,14 @@ Asema::Asema() {
 		}
 	}
 
-	_lauta[7][0] = new Torni(L"\u2656", 0, VT);
+//	_lauta[7][0] = new Torni(L"\u2656", 0, VT);
 //	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
 //	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
-	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
+//	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
 //	_lauta[3][4] = new Kuningas(L"\u265A", 1, MK);
-//	_lauta[1][1] = new Sotilas(L"\u2659", 0, VS);
-//	_lauta[1][2] = new Sotilas(L"\u2659", 0, VS);
-//	_lauta[2][3] = new Sotilas(L"\u265F", 1, MS);
+	_lauta[1][3] = new Sotilas(L"\u2659", 0, VS);
+//	_lauta[5][5] = new Sotilas(L"\u2659", 0, VS);
+	_lauta[2][6] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[3][3] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[0][1] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[1][1] = new Sotilas(L"\u265F", 1, MS);
@@ -116,12 +116,14 @@ Asema::Asema() {
 			int loppuY = loppuruutu.getRivi();
 			if (siirto->getKaksoisaskel()) {
 				_kaksoisaskelSarakkeella = alkuX;
+				std::cout << "kaksois\n";
 			}
 
 
 			if (siirto->getOhestalyonti()) {
 				if (_siirtovuoro == 0) {
 					_lauta[loppuX][alkuY] = nullptr;
+					std::cout << "ohesta\n";
 				}
 				else {
 					_lauta[loppuX][alkuY] = nullptr;
@@ -162,7 +164,7 @@ Asema::Asema() {
 				_siirtovuoro = 1;
 			}
 		}
-
+		std::cout << "kaksoisaskelSarakkeella: " << _kaksoisaskelSarakkeella << std::endl;
 	}
 
 int Asema::getSiirtovuoro() {
