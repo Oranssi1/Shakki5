@@ -24,6 +24,21 @@ Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu, bool lyonti) {
 	_pitkaLinna = false;
 }
 
+Siirto::Siirto(Ruutu alkuruutu, Ruutu loppuruutu, bool kaksoisaskel, bool ohestalyonti) {
+	_alkuRuutu = alkuruutu;
+	_loppuRuutu = loppuruutu;
+	_lyhytLinna = false;
+	_pitkaLinna = false;
+	_kaksoisaskel = kaksoisaskel;
+	_ohestalyonti = ohestalyonti;
+	if (kaksoisaskel) {
+		_lyonti = false;
+	}
+	else {
+		_lyonti = true;
+	}
+}
+
 // Poikkeussiirto linnoitusta varten
 Siirto::Siirto(bool lyhytLinna, bool pitkaLinna) {
 	_lyhytLinna = lyhytLinna;

@@ -28,7 +28,6 @@ protected:
 public:
 	Nappula(std::wstring, int, int);
 	Nappula() {};
-	virtual bool getKaksoisloikka() = 0;
 
 	virtual void annaSiirrot(
 		std::list<Siirto>& lista,
@@ -444,7 +443,7 @@ public:
 					_kaksoisloikka = true;
 				}
 			}
-			if (this->getVari = 0 && y == 4) {
+			if (this->getVari() == 0 && y == 4) {
 				n = asema->_lauta[y][x - 1];
 				if (n != nullptr) {
 					if (n->getKoodi == MS && n->getKaksoisloikka()) {
@@ -458,7 +457,7 @@ public:
 					}
 				}
 			}
-			if (this->getVari = 1 && y == 3) {
+			if (this->getVari == 1 && y == 3) {
 				n = asema->_lauta[y][x - 1];
 				if (n != nullptr) {
 					if (n->getKoodi == VS && n->getKaksoisloikka()) {

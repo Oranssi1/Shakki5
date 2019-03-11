@@ -12,6 +12,8 @@ class Siirto {
 public:
 	Siirto(Ruutu, Ruutu);
 	Siirto(Ruutu, Ruutu, bool);
+	Siirto(Ruutu, Ruutu, bool, bool);
+
 	Siirto() {}
 	Siirto(bool, bool); // Poikkeussiirto linnoitusta varten
 	Ruutu getAlkuruutu();
@@ -23,7 +25,9 @@ private:
 	Ruutu _alkuRuutu;
 	Ruutu _loppuRuutu;
 	bool _lyonti;
-	int miksiKorotetaan = 0;
+	int _miksiKorotetaan = 0;
 	bool _lyhytLinna;
 	bool _pitkaLinna;
+	bool _kaksoisaskel;
+	bool _ohestalyonti;
 };
