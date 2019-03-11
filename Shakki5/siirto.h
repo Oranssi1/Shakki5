@@ -22,6 +22,8 @@ public:
 	bool onkoLyhytLinna();
 	bool onkoPitkaLinna();
 	bool getKaksoisaskel();
+	bool getOhestalyonti();
+
 private:
 	Ruutu _alkuRuutu;
 	Ruutu _loppuRuutu;

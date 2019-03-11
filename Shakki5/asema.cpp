@@ -69,7 +69,7 @@ Asema::Asema() {
 }
 
 	void Asema::paivitaAsema(Siirto* siirto) {
-		
+
 		if (_kaksoisaskelSarakkeella != -1) {
 			_kaksoisaskelSarakkeella = -1;
 		}
@@ -118,6 +118,16 @@ Asema::Asema() {
 				_kaksoisaskelSarakkeella = alkuX;
 			}
 
+
+			if (siirto->getOhestalyonti()) {
+				if (_siirtovuoro == 0) {
+					_lauta[loppuX][alkuY] = nullptr;
+				}
+				else {
+					_lauta[loppuX][alkuY] = nullptr;
+				}
+			}
+
 			switch (nappula) {
 			case VK:
 				_onkoValkeaKuningasLiikkunut = true;
@@ -152,6 +162,7 @@ Asema::Asema() {
 				_siirtovuoro = 1;
 			}
 		}
+
 	}
 
 int Asema::getSiirtovuoro() {

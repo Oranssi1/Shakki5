@@ -432,28 +432,28 @@ public:
 			if (this->getVari() == 0 && y == 4) {
 				n = asema->_lauta[y][x - 1];
 				if (n != nullptr) {
-					if (n->getKoodi == MS && n->getKaksoisloikka()) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x - 1, y + 1)));
+					if (n->getKoodi() == MS && asema->getKaksoisaskelSarakkeella() == x-1) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x - 1, y + 1), 0, 1));
 					}
 				}
 				n = asema->_lauta[y][x + 1];
 				if (n != nullptr) {
-					if (n->getKoodi == MS && n->getKaksoisloikka()) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x + 1, y + 1)));
+					if (n->getKoodi() == MS && asema->getKaksoisaskelSarakkeella() == x + 1) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x + 1, y + 1), 0, 1));
 					}
 				}
 			}
-			if (this->getVari == 1 && y == 3) {
+			if (this->getVari() == 1 && y == 3) {
 				n = asema->_lauta[y][x - 1];
 				if (n != nullptr) {
-					if (n->getKoodi == VS && n->getKaksoisloikka()) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x - 1, y - 1)));
+					if (n->getKoodi() == VS && asema->getKaksoisaskelSarakkeella() == x - 1) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x - 1, y - 1), 0, 1));
 					}
 				}
 				n = asema->_lauta[y][x + 1];
 				if (n != nullptr) {
-					if (n->getKoodi == VS && n->getKaksoisloikka()) {
-						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x + 1, y - 1)));
+					if (n->getKoodi() == VS && asema->getKaksoisaskelSarakkeella() == x + 1) {
+						lista.push_back(Siirto(Ruutu(x, y), Ruutu(x + 1, y - 1), 0, 1));
 					}
 				}
 			}

@@ -68,3 +68,7 @@ bool Siirto::getLyonti() {
 bool Siirto::getKaksoisaskel() {
 	return _kaksoisaskel;
 }
+
+bool Siirto::getOhestalyonti() {
+	return _ohestalyonti;
+}
