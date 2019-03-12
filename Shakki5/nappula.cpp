@@ -39,41 +39,41 @@ int Nappula::getVari() {
 	return _vari;
 }
 
-void Sotilas::lisaaSotilaanKorotukset(Siirto* siirto, std::list<Siirto>& lista, Asema* asema) {
+void Nappula::lisaaSotilaanKorotukset(Siirto* siirto, std::list<Siirto>& lista, Asema* asema) {
 	if (siirto->getLoppuruutu().getRivi() == 7) {
 		// valkea korottaa
 		Siirto daamiksi = *siirto;
-		daamiksi._miksikorotetaan = asema->vd;
+		daamiksi._miksiKorotetaan = asema->vd;
 		lista.push_back(daamiksi);
 
 		Siirto torniksi = *siirto;
-		torniksi._miksikorotetaan = asema->vt;
+		torniksi._miksiKorotetaan = asema->vt;
 		lista.push_back(torniksi);
 
 		Siirto lahetiksi = *siirto;
-		lahetiksi._miksikorotetaan = asema->vl;
+		lahetiksi._miksiKorotetaan = asema->vl;
 		lista.push_back(lahetiksi);
 
 		Siirto ratsuksi = *siirto;
-		ratsuksi._miksikorotetaan = asema->vr;
+		ratsuksi._miksiKorotetaan = asema->vr;
 		lista.push_back(ratsuksi);
 	}
 	else if (siirto->getLoppuruutu().getRivi() == 0) {
 		// musta korottaa
 		Siirto daamiksi = *siirto;
-		daamiksi._miksikorotetaan = asema->md;
+		daamiksi._miksiKorotetaan = asema->md;
 		lista.push_back(daamiksi);
 
 		Siirto torniksi = *siirto;
-		torniksi._miksikorotetaan = asema->mt;
+		torniksi._miksiKorotetaan = asema->mt;
 		lista.push_back(torniksi);
 
 		Siirto lahetiksi = *siirto;
-		lahetiksi._miksikorotetaan = asema->ml;
+		lahetiksi._miksiKorotetaan = asema->ml;
 		lista.push_back(lahetiksi);
 
 		Siirto ratsuksi = *siirto;
-		ratsuksi._miksikorotetaan = asema->mr;
+		ratsuksi._miksiKorotetaan = asema->mr;
 		lista.push_back(ratsuksi);
 	}
 }

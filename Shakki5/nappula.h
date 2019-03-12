@@ -406,12 +406,12 @@ public:
 
 			if (n == nullptr) {
 				if (new_y == 0 || new_y == 7) {
-					lisaaSotilaanKorotukset(&Siirto(Ruutu(x, y), Ruutu(x, new_Y)), lista, asema);
+					lisaaSotilaanKorotukset(&Siirto(Ruutu(x, y), Ruutu(x, new_y)), lista, asema);
 				}
 				else {
 					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y), 0));
 				}
-				if (x-1 > -1) {
+				if (x - 1 > -1) {
 					n = asema->_lauta[x-1][new_y];
 					if (n != nullptr) {
 						if (n->getVari() != vari) {

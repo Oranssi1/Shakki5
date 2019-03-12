@@ -8,6 +8,8 @@
 #include "ruutu.h"
 #pragma once
 
+class Nappula;
+
 class Siirto {
 public:
 	Siirto(Ruutu, Ruutu);
@@ -21,6 +23,7 @@ public:
 	bool getLyonti();
 	bool onkoLyhytLinna();
 	bool onkoPitkaLinna();
+	Nappula* _miksiKorotetaan = 0;
 	//bool getKaksoisaskel();
 	//bool getOhestalyonti();
 
@@ -28,7 +31,6 @@ private:
 	Ruutu _alkuRuutu;
 	Ruutu _loppuRuutu;
 	bool _lyonti;
-	int _miksiKorotetaan = 0;
 	bool _lyhytLinna;
 	bool _pitkaLinna;
 	//bool _kaksoisaskel;
