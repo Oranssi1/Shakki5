@@ -391,34 +391,43 @@ public:
 	{
 		int x = ruutu->getRivi();
 		int y = ruutu->getSarake();
-		int dy = 1;
+		int dy = 1; // askel muutos
 		int new_y;
 
-		Nappula* n = asema->_lauta[x][y];
+		Nappula* n = asema->_lauta[x][y]; 
 
-		if (_vari == 1) {
+		if (_vari == 1) { // jos musta, niin askel muutos negatiivinen
 			dy = -dy;
 		}
-		new_y = y + dy;
 
-		if (new_y < 8 && new_y > -1) {
-			n = asema->_lauta[x][new_y];
+		new_y = y + dy; // askel muutos lisätty y arvoon
 
-			if (n == nullptr) {
-				if (new_y == 0 || new_y == 7) {
+		if (new_y < 8 && new_y > -1) { // jos y on kentällä (0-7)
+			n = asema->_lauta[x][new_y]; // ruutu mihin nappula tulee liikkumaan
+
+			// Normaali liikkuminen
+
+			if (n == nullptr) {  // onko ruutu tyhjä
+				if (new_y == 0 || new_y == 7) { // onko ruutu jompi kumpi päätyruuduista
 					lisaaSotilaanKorotukset(&Siirto(Ruutu(x, y), Ruutu(x, new_y)), lista, asema);
 				}
 				else {
-					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y), 0));
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y), 0)); // normaali askel
 				}
-				if (x - 1 > -1) {
-					n = asema->_lauta[x-1][new_y];
-					if (n != nullptr) {
+
+				// Syönti (valkoisista katsottuna vasen puoli)
+
+				if (x - 1 > -1) { // meneekö A laidasta ristiin syönti yli
+					n = asema->_lauta[x-1][new_y]; // ruutu johon nappula tulee liikkumaan
+					if (n != nullptr) { // jos ei tyhjä ruutu
 						if (n->getVari() != vari) {
 							lista.push_back(Siirto(Ruutu(x, y), Ruutu(x-1, new_y)));
 						}
 					}
 				}
+
+				// Syönti (valkoisista katsottuna oikea puoli)
+			
 				if (x+1 < 8) {
 					n = asema->_lauta[x+1][new_y];
 					if (n != nullptr) {
@@ -429,12 +438,17 @@ public:
 				}
 			}
 
+			// Kaksoisaskel
+
 			if (y == 1 && dy == 1 || y == 6 && dy == -1 && new_y + dy < 8 && new_y + dy > -1) {
 				n = asema->_lauta[x][new_y + dy];
 				if (n == nullptr) {
 					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y + dy), 0));
 				}
 			}
+
+			// Ohestalyönnit
+
 			if (this->getVari() == 0 && y == 4) {
 				n = asema->_lauta[y][x - 1];
 				if (n != nullptr) {
