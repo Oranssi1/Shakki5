@@ -16,6 +16,9 @@ class Nappula;
 
 class Asema {
 
+static Nappula *vk, *vd, *vt, *vl, *vr, *vs;	
+static Nappula *mk, *md, *mt, *ml, *mr, *ms;	
+
 public:
 	Asema();
 	Nappula* _lauta[8][8];
