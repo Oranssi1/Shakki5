@@ -42,6 +42,7 @@ public:
 	std::wstring getUnicode();
 	void setVari(int);
 	int getVari();
+	void lisaaSotilaanKorotukset(Siirto*, std::list<Siirto>& lista, Asema*);
 
 };
 
@@ -404,7 +405,12 @@ public:
 			n = asema->_lauta[x][new_y];
 
 			if (n == nullptr) {
-				lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y), 0));
+				if (new_y == 0 || new_y == 7) {
+					lisaaSotilaanKorotukset(&Siirto(Ruutu(x, y), Ruutu(x, new_Y)), lista, asema);
+				}
+				else {
+					lista.push_back(Siirto(Ruutu(x, y), Ruutu(x, new_y), 0));
+				}
 				if (x-1 > -1) {
 					n = asema->_lauta[x-1][new_y];
 					if (n != nullptr) {

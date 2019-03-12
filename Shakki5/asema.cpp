@@ -32,19 +32,33 @@ Asema::Asema() {
 //	_lauta[4][3] = new Daami(L"\u2655", 0, VD);
 //	_lauta[6][3] = new Torni(L"\u265C", 1, MT);
 
-	_lauta[0][0] = new Torni(L"\u2656", 0, VT);
-	_lauta[1][0] = new Ratsu(L"\u2658", 0, VR);
-	_lauta[2][0] = new Lahetti(L"\u2657", 0, VL);
-	_lauta[3][0] = new Daami(L"\u2655", 0, VD);
-	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
-	_lauta[0][1] = new Sotilas(L"\u2659", 0, VS);
+	Nappula* Asema:: vt = new Torni(L"\u2656", 0, VT);
+	Nappula* Asema:: vr = new Ratsu(L"\u2658", 0, VR);
+	Nappula* Asema:: vl = new Lahetti(L"\u2657", 0, VL);
+	Nappula* Asema:: vd = new Daami(L"\u2655", 0, VD);
+	Nappula* Asema:: vk = new Kuningas(L"\u2654", 0, VK);
+	Nappula* Asema:: vs = new Sotilas(L"\u2659", 0, VS);
 
-	_lauta[0][7] = new Torni(L"\u265C", 1, MT);
-	_lauta[1][7] = new Ratsu(L"\u265E", 1, MR);
-	_lauta[2][7] = new Lahetti(L"\u265D", 1, ML);
-	_lauta[4][7] = new Kuningas(L"\u265A", 1, MK);
-	_lauta[3][7] = new Daami(L"\u265B", 1, MD);
-	_lauta[0][6] = new Sotilas(L"\u265F", 1, MS);
+	Nappula* Asema:: mt = new Torni(L"\u265C", 1, MT);
+	Nappula* Asema:: mr = new Ratsu(L"\u265E", 1, MR);
+	Nappula* Asema:: ml = new Lahetti(L"\u265D", 1, ML);
+	Nappula* Asema:: mk = new Kuningas(L"\u265A", 1, MK);
+	Nappula* Asema:: md = new Daami(L"\u265B", 1, MD);
+	Nappula* Asema:: ms = new Sotilas(L"\u265F", 1, MS);
+
+	_lauta[0][0] = vt
+	_lauta[1][0] = vr
+	_lauta[2][0] = vl
+	_lauta[3][0] = vd
+	_lauta[4][0] = vk
+	_lauta[0][1] = vs
+
+	_lauta[0][7] = mt
+	_lauta[1][7] = mr
+	_lauta[2][7] = ml
+	_lauta[4][7] = mk
+	_lauta[3][7] = md
+	_lauta[0][6] = ms
 
 	_lauta[5][0] = _lauta[2][0];
 	_lauta[6][0] = _lauta[1][0];
@@ -137,6 +151,11 @@ Asema::Asema() {
 
 			if ((sijainti->getKoodi() == VS || sijainti->getKoodi() == MS) && (alkuY != loppuY) && (_lauta[loppuY][loppuX] == NULL)) {
 				_lauta[loppuY][alkuX] = NULL;
+			}
+
+			if (siirto->_miksikorotetaan != NULL) {
+				_lauta[loppuY][loppuX] = siirto->_miksikorotetaan;
+				_lauta[alkuY][alkuX] = NULL;
 			}
 
 			switch (nappula) {
