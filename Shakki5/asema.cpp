@@ -1,9 +1,9 @@
-//
+﻿//
 //  asema.cpp
 //  Chess
 //
 //  Created by Nico Behnen on 18/01/2019.
-//  Copyright � 2019 B & J Corp. All rights reserved.
+//  Copyright ｩ 2019 B & J Corp. All rights reserved.
 //
 
 #include "asema.h"
@@ -31,10 +31,10 @@ Asema::Asema() {
 		}
 	}
 
-//	_lauta[7][0] = new Torni(L"\u2656", 0, VT);
+	_lauta[6][4] = new Torni(L"\u2656", 0, VT);
 //	_lauta[4][4] = new Lahetti(L"\u2657", 0, VL);
 //	_lauta[3][3] = new Ratsu(L"\u2658", 0, VR);
-//	_lauta[4][0] = new Kuningas(L"\u2654", 0, VK);
+	_lauta[6][2] = new Kuningas(L"\u2654", 0, VK);
 //	_lauta[3][4] = new Kuningas(L"\u265A", 1, MK);
 //	_lauta[1][3] = new Sotilas(L"\u2659", 0, VS);
 //	_lauta[5][5] = new Sotilas(L"\u2659", 0, VS);
@@ -44,36 +44,36 @@ Asema::Asema() {
 //	_lauta[0][1] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[1][1] = new Sotilas(L"\u265F", 1, MS);
 //	_lauta[4][3] = new Daami(L"\u2655", 0, VD);
-//	_lauta[6][3] = new Torni(L"\u265C", 1, MT);
+	_lauta[6][6] = new Torni(L"\u265C", 1, MT);
 
 
 
-	_lauta[0][0] = vt;
-	_lauta[1][0] = vr;
-	_lauta[2][0] = vl;
-	_lauta[3][0] = vd;
-	_lauta[4][0] = vk;
-	_lauta[0][1] = vs;
+	//_lauta[0][0] = vt;
+	//_lauta[1][0] = vr;
+	//_lauta[2][0] = vl;
+	//_lauta[3][0] = vd;
+	//_lauta[4][0] = vk;
+	//_lauta[0][1] = vs;
 
-	_lauta[0][7] = mt;
-	_lauta[1][7] = mr;
-	_lauta[2][7] = ml;
-	_lauta[4][7] = mk;
-	_lauta[3][7] = md;
-	_lauta[0][6] = ms;
+	//_lauta[0][7] = mt;
+	//_lauta[1][7] = mr;
+	//_lauta[2][7] = ml;
+	//_lauta[4][7] = mk;
+	//_lauta[3][7] = md;
+	//_lauta[0][6] = ms;
 
-	_lauta[5][0] = _lauta[2][0];
-	_lauta[6][0] = _lauta[1][0];
-	_lauta[7][0] = _lauta[0][0];
+	//_lauta[5][0] = _lauta[2][0];
+	//_lauta[6][0] = _lauta[1][0];
+	//_lauta[7][0] = _lauta[0][0];
 
-	_lauta[5][7] = _lauta[2][7];
-	_lauta[6][7] = _lauta[1][7];
-	_lauta[7][7] = _lauta[0][7];
+	//_lauta[5][7] = _lauta[2][7];
+	//_lauta[6][7] = _lauta[1][7];
+	//_lauta[7][7] = _lauta[0][7];
 
-	for (int i = 0; i < 8; i++) {
-		_lauta[i][1] = _lauta[0][1];
-		_lauta[i][6] = _lauta[0][6];
-	}
+	//for (int i = 0; i < 8; i++) {
+	//	_lauta[i][1] = _lauta[0][1];
+	//	_lauta[i][6] = _lauta[0][6];
+	//}
 
 	_siirtovuoro = 0;
 	_onkoValkeaKuningasLiikkunut = false;
@@ -290,7 +290,109 @@ void Asema::annaLaillisetSiirrot(std::list<Siirto>& lista) {
 	lista = lopulliset;
 }
 
+MinMaxPaluu Asema::Minimax(int syvyys)
+{
+	MinMaxPaluu paluuarvo;
 
+	std::list<Siirto> siirrot;
+	annaLaillisetSiirrot(siirrot);
 
+	if (siirrot.size() == 0)
+	{
+		paluuarvo._evaluointiArvo = lopputulos();
+		return paluuarvo;
+	}
 
+	if (syvyys == 0)
+	{
+		paluuarvo._evaluointiArvo = evaluoi();
+		return paluuarvo;
+	}
 
+	paluuarvo._evaluointiArvo = (_siirtovuoro == 0 ? -1000000 : 1000000);
+	for (auto s : siirrot)
+	{
+
+		Asema uusi_asema = *this;
+		uusi_asema.paivitaAsema(&s);
+
+		MinMaxPaluu arvo = uusi_asema.Minimax(syvyys - 1);
+
+		if
+			(
+			(_siirtovuoro == 0 && arvo._evaluointiArvo > paluuarvo._evaluointiArvo) ||
+				(_siirtovuoro == 1 && arvo._evaluointiArvo < paluuarvo._evaluointiArvo)
+				)
+		{
+			paluuarvo._evaluointiArvo = arvo._evaluointiArvo;
+			paluuarvo._parasSiirto = s;
+		}
+	}
+	return paluuarvo;
+}
+
+double Asema::lopputulos()
+{
+	Nappula* kunkku = _siirtovuoro == 0 ? vk : mk;
+	int kx, ky;
+	for (int x = 0; x < 8; ++x)
+	{
+		for (int y = 0; y < 8; ++y)
+		{
+			if (_lauta[x][y] == kunkku)
+			{
+				kx = x;
+				ky = y;
+			}
+		}
+	}
+
+	//if (onkoRuutuUhattu(Ruutu(kx, ky), lista))
+	//	return 0; // tasapeli (patti)
+	//else
+		return _siirtovuoro == 0 ? -1000000 : 1000000;
+}
+
+double Asema::evaluoi()
+{
+	const double materiaaliKerroin = 1.0;
+	double materiaali = laskeNappuloidenArvo(0) - laskeNappuloidenArvo(1);
+	return materiaaliKerroin * materiaali;
+}
+
+double Asema::laskeNappuloidenArvo(int vari)
+{
+	double valkeaArvo = 0;
+	double mustaArvo = 0;
+	for (int x = 0; x < 8; x++) {
+		for (int y = 0; y < 8; y++) {
+			if (this->_lauta[x][y] != NULL) {
+				int nappulanNimi = this->_lauta[x][y]->getKoodi();
+				if (nappulanNimi == VD)
+					valkeaArvo += 9;
+				if (nappulanNimi == VT)
+					valkeaArvo += 5;
+				if (nappulanNimi == VL)
+					valkeaArvo += 3.25;
+				if (nappulanNimi == VR)
+					valkeaArvo += 3;
+				if (nappulanNimi == VS)
+					valkeaArvo += 1;
+				if (nappulanNimi == MD)
+					mustaArvo += 9;
+				if (nappulanNimi == MT)
+					mustaArvo += 5;
+				if (nappulanNimi == ML)
+					mustaArvo += 3.25;
+				if (nappulanNimi == MR)
+					mustaArvo += 3;
+				if (nappulanNimi == MS)
+					mustaArvo += 1;
+			}
+		}
+	}
+	if (vari == 0)
+		return valkeaArvo;
+	else
+		return mustaArvo;
+}

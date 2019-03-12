@@ -9,6 +9,7 @@
 #pragma once
 //#include "nappula.h"
 #include "siirto.h"
+#include "Minimax.h"
 #include <list>
 
 class Nappula;
@@ -37,6 +38,10 @@ public:
 	void annaLaillisetSiirrot(std::list<Siirto>&);
 	bool onkoRuutuUhattu(Ruutu ruutu, std::list<Siirto>& siirrot);
 	Ruutu etsiKuningas(int);
+	MinMaxPaluu Minimax(int syvyys); 
+	double lopputulos();
+	double evaluoi();
+	double laskeNappuloidenArvo(int vari);
 
 	
 private:

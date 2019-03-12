@@ -50,5 +50,8 @@
     <ClInclude Include="siirto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Minimax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

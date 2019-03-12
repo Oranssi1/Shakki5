@@ -324,7 +324,7 @@ public:
 				Nappula* nappula = asema->_lauta[i][j];
 				if (nappula != nullptr) {
 					if (asema->_lauta[i][j]->getVari() == vuorojuttu) {
-						asema->_lauta[i][j]->annaSiirrot(lista, &Ruutu(i, j), asema, vuorojuttu);
+						asema->_lauta[i][j]->annaSiirrot(vihollislista, &Ruutu(i, j), asema, vuorojuttu);
 					}
 				}
 			}

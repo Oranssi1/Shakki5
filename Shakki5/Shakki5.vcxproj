@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="asema.h" />
     <ClInclude Include="kayttoliittyma.h" />
+    <ClInclude Include="Minimax.h" />
     <ClInclude Include="nappula.h" />
     <ClInclude Include="ruutu.h" />
     <ClInclude Include="siirto.h" />
